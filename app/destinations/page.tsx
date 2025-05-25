@@ -174,9 +174,9 @@ export default function DestinationsPage() {
         {/* Map Overview */}
         <section className="container py-12">
           <h2 className="mb-8 text-center text-3xl font-bold">Regions of Cameroon</h2>
-          <div className="relative mx-auto h-[500px] w-full max-w-4xl rounded-lg border shadow-md">
+          <div className="relative mx-auto h-[1500px] w-full max-w-4xl rounded-lg border shadow-md">
             <Image
-              src="/placeholder.svg?height=800&width=1200"
+              src="/MapofCameroon.png?height=800&width=200"
               alt="Map of Cameroon"
               fill
               className="rounded-lg object-cover"
