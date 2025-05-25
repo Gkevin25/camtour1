@@ -10,7 +10,41 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+//import { account } from "@/lib/appwrite"
 import Link from "next/link"
+import { useAuth } from '@/contexts/AuthContext'
+import { Client, Account } from "appwrite";
+
+const client = new Client()
+    .setProject('<PROJECT_ID>'); // Your project ID
+
+const account = new Account(client);
+
+const promise = account.createEmailPasswordSession('email@example.com', 'password');
+
+promise.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+
+
+function SomeComponent() {
+  const { user, loading, logout } = useAuth()
+  
+  if (loading) return <div>Loading...</div>
+  
+  if (user) {
+    return (
+      <div>
+        Welcome, {user.name}!
+        <button onClick={logout}>Logout</button>
+      </div>
+    )
+  }
+  
+  return <div>Please log in</div>
+}
 
 export function LoginForm() {
   const router = useRouter()
@@ -66,29 +100,67 @@ export function LoginForm() {
     setIsLoading(true)
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Create session with Appwrite
+      const session = await account.createEmailPasswordSession(
+        formData.email,
+        formData.password
+      )
 
-      // In a real app, you would send the data to your API
-      console.log("Login data:", formData)
+      console.log("Login successful:", session)
+
+      // Get user details
+      const user = await account.get()
+      console.log("User details:", user)
 
       toast({
         title: "Welcome back!",
-        description: "You have successfully signed in to your account.",
+        description: `You have successfully signed in to your account.`,
       })
 
       // Redirect to dashboard or home
       router.push("/")
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Login error:", error)
+      
+      let errorMessage = "Invalid email or password. Please try again."
+      
+      if (error.code === 401) {
+        errorMessage = "Invalid email or password. Please try again."
+      } else if (error.code === 429) {
+        errorMessage = "Too many login attempts. Please try again later."
+      } else if (error.message) {
+        errorMessage = error.message
+      }
+
       toast({
-        title: "Error",
-        description: "Invalid email or password. Please try again.",
+        title: "Login Failed",
+        description: errorMessage,
         variant: "destructive",
       })
     } finally {
       setIsLoading(false)
     }
   }
+
+  //type OAuthProvider = "google" | "facebook";
+
+  /*const handleSocialLogin = async (provider: OAuthProvider) => {
+    try {
+      // Create OAuth2 session
+      account.createOAuth2Session(
+        provider,
+        `${window.location.origin}/`, // Success URL
+        `${window.location.origin}/login` // Failure URL
+      )
+    } catch (error: any) {
+      console.error(`${provider} login error:`, error)
+      toast({
+        title: "Login Failed",
+        description: `Failed to login with ${provider}. Please try again.`,
+        variant: "destructive",
+      })
+    }
+  }*/
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -170,7 +242,12 @@ export function LoginForm() {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <Button variant="outline" type="button">
+        <Button 
+          variant="outline" 
+          type="button"
+          //onClick={() => handleSocialLogin('google')}
+          disabled={isLoading}
+        >
           <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
             <path
               d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -191,7 +268,12 @@ export function LoginForm() {
           </svg>
           Google
         </Button>
-        <Button variant="outline" type="button">
+        <Button 
+          variant="outline" 
+          type="button"
+          //onClick={() => handleSocialLogin('facebook')}
+          disabled={isLoading}
+        >
           <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
           </svg>

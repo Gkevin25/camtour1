@@ -8,9 +8,28 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { account } from "@/lib/appwrite"
+import { ID } from "appwrite"
+import { useAuth } from '@/contexts/AuthContext'
+
+function SomeComponent() {
+  const { user, loading, logout } = useAuth()
+  
+  if (loading) return <div>Loading...</div>
+  
+  if (user) {
+    return (
+      <div>
+        Welcome, {user.name}!
+        <button onClick={logout}>Logout</button>
+      </div>
+    )
+  }
+  
+  return <div>Please log in</div>
+}
 
 export function SignupForm() {
   const router = useRouter()
@@ -26,7 +45,6 @@ export function SignupForm() {
     phone: "",
     password: "",
     confirmPassword: "",
-    //country: "",
     agreeToTerms: false,
     subscribeNewsletter: false,
   })
@@ -41,13 +59,6 @@ export function SignupForm() {
     }))
 
     // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }))
-    }
-  }
-
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }))
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }))
     }
@@ -86,10 +97,6 @@ export function SignupForm() {
       newErrors.confirmPassword = "Passwords do not match"
     }
 
-   /* if (!formData.country) {
-      newErrors.country = "Please select your country"
-    }*/
-
     if (!formData.agreeToTerms) {
       newErrors.agreeToTerms = "You must agree to the terms and conditions"
     }
@@ -108,23 +115,49 @@ export function SignupForm() {
     setIsLoading(true)
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      // Create account with Appwrite
+      const response = await account.create(
+        ID.unique(),
+        formData.email,
+        formData.password,
+        `${formData.firstName} ${formData.lastName}`
+      )
 
-      // In a real app, you would send the data to your API
-      console.log("Signup data:", formData)
+      console.log("Account created:", response)
+
+      // Update user preferences with additional data
+      try {
+        await account.updatePrefs({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          phone: formData.phone,
+          subscribeNewsletter: formData.subscribeNewsletter,
+        })
+      } catch (prefError) {
+        console.log("Could not update preferences:", prefError)
+      }
 
       toast({
         title: "Account created successfully!",
-        description: "Welcome to CamTour. You can now start exploring our tours.",
+        description: "Welcome to CamTour. Please check your email to verify your account.",
       })
 
-      // Redirect to login or dashboard
+      // Redirect to login page
       router.push("/login")
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Signup error:", error)
+      
+      let errorMessage = "Something went wrong. Please try again."
+      
+      if (error.code === 409) {
+        errorMessage = "An account with this email already exists."
+      } else if (error.message) {
+        errorMessage = error.message
+      }
+
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       })
     } finally {
@@ -188,8 +221,6 @@ export function SignupForm() {
         />
         {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
       </div>
-
-     
 
       <div className="space-y-2">
         <Label htmlFor="password">Password</Label>
