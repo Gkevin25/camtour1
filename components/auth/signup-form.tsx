@@ -14,22 +14,6 @@ import { account } from "@/lib/appwrite"
 import { ID } from "appwrite"
 import { useAuth } from '@/contexts/AuthContext'
 
-function SomeComponent() {
-  const { user, loading, logout } = useAuth()
-  
-  if (loading) return <div>Loading...</div>
-  
-  if (user) {
-    return (
-      <div>
-        Welcome, {user.name}!
-        <button onClick={logout}>Logout</button>
-      </div>
-    )
-  }
-  
-  return <div>Please log in</div>
-}
 
 export function SignupForm() {
   const router = useRouter()

@@ -10,6 +10,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import MainNav from "@/components/main-nav"
 import Footer from "@/components/footer"
 import TourCard from "@/components/tour-card"
+import { useAuth } from '@/contexts/AuthContext'
+
+
 
 const tourCategories = [
   { id: "all", name: "All Tours" },

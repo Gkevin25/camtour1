@@ -10,41 +10,14 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
-//import { account } from "@/lib/appwrite"
+import { account } from "@/lib/appwrite"
 import Link from "next/link"
 import { useAuth } from '@/contexts/AuthContext'
-import { Client, Account } from "appwrite";
-
-const client = new Client()
-    .setProject('<PROJECT_ID>'); // Your project ID
-
-const account = new Account(client);
-
-const promise = account.createEmailPasswordSession('email@example.com', 'password');
-
-promise.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
-});
+import { Client} from "appwrite";
 
 
-function SomeComponent() {
-  const { user, loading, logout } = useAuth()
-  
-  if (loading) return <div>Loading...</div>
-  
-  if (user) {
-    return (
-      <div>
-        Welcome, {user.name}!
-        <button onClick={logout}>Logout</button>
-      </div>
-    )
-  }
-  
-  return <div>Please log in</div>
-}
+
+
 
 export function LoginForm() {
   const router = useRouter()
@@ -282,4 +255,8 @@ export function LoginForm() {
       </div>
     </form>
   )
+}
+
+function setEndpoint(arg0: string) {
+  throw new Error("Function not implemented.")
 }
