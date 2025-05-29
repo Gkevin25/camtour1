@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import { Search, MapPin, Star } from "lucide-react"
@@ -10,7 +11,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import MainNav from "@/components/main-nav"
 import Footer from "@/components/footer"
 import TourCard from "@/components/tour-card"
-import { useAuth } from '@/contexts/AuthContext'
 
 
 
@@ -177,25 +177,43 @@ const popularTours = [
   },
 ]
 
+
+
+import { useEffect } from "react"
+import { useAuth } from "@/contexts/AuthContext"
+import { useRouter } from "next/navigation"
+
 export default function ToursPage() {
+  const { user, loading } = useAuth()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push("/signup")
+    }
+  }, [user, loading, router])
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (!user) {
+    return null
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center">
+        <div className="container flex h-16 items-center">
+          <div className="flex items-center mr-8">
             <Link href="/">
               <Image src="/logo.png" alt="CamTour Logo" width={120} height={80} className="h-12 w-auto" />
             </Link>
           </div>
-          <MainNav />
-          <div className="flex items-center gap-4">
-             <Link href="/login">
-              <Button variant="ghost">Sign In</Button>
-            </Link>
-            <Link href="/signup">
-              <Button className="bg-green-700 hover:bg-green-800">Sign Up</Button>
-            </Link>
+          <div className="flex-1 flex justify-center">
+            <MainNav />
           </div>
+          <div className="flex-2"></div>
         </div>
       </header>
 
@@ -216,29 +234,7 @@ export default function ToursPage() {
               Discover the best tours and experiences across Cameroon's diverse landscapes and rich cultural heritage
             </p>
 
-            {/* Search Bar */}
-            <div className="w-full max-w-3xl rounded-lg bg-white p-4 shadow-lg">
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input type="text" placeholder="Search tours..." className="pl-9" />
-                </div>
-                <Select>
-                  <SelectTrigger className="w-full sm:w-[180px]">
-                    <SelectValue placeholder="Destination" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Destinations</SelectItem>
-                    <SelectItem value="douala">Douala</SelectItem>
-                    <SelectItem value="yaounde">Yaoundé</SelectItem>
-                    <SelectItem value="limbe">Limbe</SelectItem>
-                    <SelectItem value="kribi">Kribi</SelectItem>
-                    <SelectItem value="buea">Buea</SelectItem>
-                  </SelectContent>
-                </Select>
-                <Button className="bg-green-700 hover:bg-green-800">Search</Button>
-              </div>
-            </div>
+            
           </div>
         </section>
 
