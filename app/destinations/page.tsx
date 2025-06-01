@@ -9,122 +9,173 @@ import Footer from "@/components/footer"
 const destinations = [
   {
     id: "coastal-region",
-    name: "Coastal Region",
-    image: "/placeholder.svg?height=400&width=600",
+    name: "Adamawa (Adamaoua)",
+    image: "/coastal1.jpg",
     description:
       "Explore Cameroon's beautiful coastline with black and white sand beaches, wildlife centers, and vibrant port cities.",
     locations: [
       {
         id: "limbe",
-        name: "Limbe",
-        image: "/placeholder.svg?height=300&width=400",
+        name: "Capital: Ngaoundéré",
+        image: "/limbe11.jpg",
         description:
           "Known for its black sand beaches and wildlife center, Limbe offers a unique coastal experience at the foot of Mount Cameroon.",
       },
-      {
-        id: "kribi",
-        name: "Kribi",
-        image: "/placeholder.svg?height=300&width=400",
-        description:
-          "Famous for its pristine white sand beaches and the Lobe Falls, where a river cascades directly into the Atlantic Ocean.",
-      },
-      {
-        id: "douala",
-        name: "Douala",
-        image: "/placeholder.svg?height=300&width=400",
-        description:
-          "Cameroon's largest city and economic capital, featuring vibrant markets, colonial architecture, and a bustling port.",
-      },
+      
+      
     ],
   },
   {
     id: "western-highlands",
-    name: "Western Highlands",
-    image: "/placeholder.svg?height=400&width=600",
+    name: "Centre (Centre)",
+    image: "/western1.jpg",
     description:
       "Discover the mountainous region of Cameroon with its cool climate, tea plantations, and rich cultural heritage.",
     locations: [
       {
         id: "buea",
-        name: "Buea",
-        image: "/placeholder.svg?height=300&width=400",
+        name: "Capital: Yaoundé",
+        image: "/buea1.jpg",
         description:
           "The gateway to Mount Cameroon, offering hiking adventures and stunning views of the surrounding landscape.",
       },
-      {
-        id: "bamenda",
-        name: "Bamenda",
-        image: "/placeholder.svg?height=300&width=400",
-        description:
-          "The capital of the Northwest Region, known for its cool climate, traditional palaces, and vibrant cultural scene.",
-      },
-      {
-        id: "foumban",
-        name: "Foumban",
-        image: "/placeholder.svg?height=300&width=400",
-        description:
-          "Home to the Bamoun Kingdom's Royal Palace and Museum, and famous for its skilled artisans and craftspeople.",
-      },
+      
     ],
   },
   {
     id: "northern-savanna",
-    name: "Northern Savanna",
-    image: "/placeholder.svg?height=400&width=600",
+    name: "East (Est)",
+    image: "/savanah1.jpg",
     description:
       "Experience the vast savannas of northern Cameroon, home to diverse wildlife and traditional cultures.",
     locations: [
       {
         id: "waza-national-park",
-        name: "Waza National Park",
-        image: "/placeholder.svg?height=300&width=400",
+        name: "Capital: Bertoua",
+        image: "/waza1.webp",
         description:
           "A UNESCO Biosphere Reserve featuring elephants, giraffes, lions, and numerous bird species in their natural habitat.",
       },
-      {
-        id: "maroua",
-        name: "Maroua",
-        image: "/placeholder.svg?height=300&width=400",
-        description:
-          "The capital of the Far North Region, known for its colorful markets, leather crafts, and nearby mountain scenery.",
-      },
-      {
-        id: "rhumsiki",
-        name: "Rhumsiki",
-        image: "/placeholder.svg?height=300&width=400",
-        description:
-          "A picturesque village surrounded by volcanic peaks, famous for its unique rock formations and traditional culture.",
-      },
+      
     ],
   },
   {
     id: "rainforest-region",
-    name: "Rainforest Region",
-    image: "/placeholder.svg?height=400&width=600",
+    name: "Far North (Extrême-Nord)",
+    image: "/rainforest1.jpg",
     description:
       "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
     locations: [
       {
         id: "korup-national-park",
-        name: "Korup National Park",
-        image: "/placeholder.svg?height=300&width=400",
+        name: "Capital: Maroua",
+        image: "/korup1.jpg",
         description:
           "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
       },
+      
+    ],
+  },
+  {
+    id: "rainforest-region",
+    name: "Littoral (Littoral)",
+    image: "/rainforest1.jpg",
+    description:
+      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+    locations: [
       {
-        id: "dja-reserve",
-        name: "Dja Faunal Reserve",
-        image: "/placeholder.svg?height=300&width=400",
+        id: "korup-national-park",
+        name: "Capital: Douala",
+        image: "/korup1.jpg",
         description:
-          "A UNESCO World Heritage site protecting one of Africa's largest and best-preserved rainforests and its diverse wildlife.",
+          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
       },
+      
+    ],
+  },
+  {
+    id: "rainforest-region",
+    name: "North (Nord)",
+    image: "/rainforest1.jpg",
+    description:
+      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+    locations: [
       {
-        id: "lobeke-national-park",
-        name: "Lobéké National Park",
-        image: "/placeholder.svg?height=300&width=400",
+        id: "korup-national-park",
+        name: "Capital: Garoua",
+        image: "/korup1.jpg",
         description:
-          "Part of the Sangha Trinational protected area, featuring forest clearings where wildlife gathers and Baka Pygmy communities.",
+          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
       },
+      
+    ],
+  },
+  {
+    id: "rainforest-region",
+    name: "Northwest (Nord-Ouest)",
+    image: "/rainforest1.jpg",
+    description:
+      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+    locations: [
+      {
+        id: "korup-national-park",
+        name: "Capital: Bamenda",
+        image: "/korup1.jpg",
+        description:
+          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+      },
+      
+    ],
+  },
+  {
+    id: "rainforest-region",
+    name: "West (Ouest)",
+    image: "/rainforest1.jpg",
+    description:
+      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+    locations: [
+      {
+        id: "korup-national-park",
+        name: "Capital: Bafoussam",
+        image: "/korup1.jpg",
+        description:
+          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+      },
+      
+    ],
+  },
+  {
+    id: "rainforest-region",
+    name: "South (Sud)",
+    image: "/rainforest1.jpg",
+    description:
+      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+    locations: [
+      {
+        id: "korup-national-park",
+        name: "Capital: Ebolowa",
+        image: "/korup1.jpg",
+        description:
+          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+      },
+      
+    ],
+  },
+  {
+    id: "rainforest-region",
+    name: "Southwest (Sud-Ouest)",
+    image: "/rainforest1.jpg",
+    description:
+      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+    locations: [
+      {
+        id: "korup-national-park",
+        name: "Capital: Buea",
+        image: "/korup1.jpg",
+        description:
+          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+      },
+      
     ],
   },
 ]
@@ -141,7 +192,12 @@ export default function DestinationsPage() {
           </div>
           <MainNav />
           <div className="flex items-center gap-4">
-             
+             <Link href="/login">
+              <Button variant="ghost">Sign In</Button>
+            </Link>
+            <Link href="/signup">
+              <Button className="bg-green-700 hover:bg-green-800">Sign Up</Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -188,7 +244,7 @@ export default function DestinationsPage() {
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   <div className="relative h-[300px] md:h-auto">
                     <Image
-                      src={region.image || "/placeholder.svg"}
+                      src={region.image || "/kribi1.jpg"}
                       alt={region.name}
                       fill
                       className="rounded-lg object-cover"
@@ -206,7 +262,7 @@ export default function DestinationsPage() {
                         >
                           <div className="mr-4 h-16 w-16 overflow-hidden rounded-md">
                             <Image
-                              src={location.image || "/placeholder.svg"}
+                              src={location.image || "/limbe3.jpg"}
                               alt={location.name}
                               width={64}
                               height={64}
@@ -237,19 +293,19 @@ export default function DestinationsPage() {
               {[
                 {
                   name: "Mount Cameroon",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: "/mount1.jpg",
                   description:
                     "West Africa's highest peak, offering challenging hikes and diverse ecosystems from rainforest to alpine.",
                 },
                 {
                   name: "Lobe Falls",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: "/lobe1.jpg",
                   description:
                     "One of the few places in the world where a waterfall flows directly into the ocean, located near Kribi.",
                 },
                 {
                   name: "Limbe Wildlife Centre",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: "/wildlife1.jpg",
                   description:
                     "A sanctuary for rescued primates and other wildlife, offering educational tours and conservation programs.",
                 },
@@ -257,7 +313,7 @@ export default function DestinationsPage() {
                 <Card key={index} className="overflow-hidden">
                   <div className="relative h-48">
                     <Image
-                      src={destination.image || "/placeholder.svg"}
+                      src={destination.image || "/limbe9.jpg"}
                       alt={destination.name}
                       fill
                       className="object-cover transition-transform hover:scale-105"

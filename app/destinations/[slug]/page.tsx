@@ -13,9 +13,9 @@ const getDestinationData = (slug: string) => {
   // Sample data for Limbe
   if (slug === "limbe") {
     return {
-      name: "Limbe",
+      name: "Adamawa (Adamaoua)",
       region: "Coastal Region",
-      image: "/placeholder.svg?height=800&width=1600",
+      image: "/limbe-city1.jpg",
       description:
         "Limbe is a coastal city in the Southwest Region of Cameroon, known for its black sand beaches, botanical garden, and wildlife center. Situated at the foot of Mount Cameroon, it offers a unique blend of natural beauty, wildlife conservation, and cultural experiences.",
       highlights: [
@@ -32,32 +32,32 @@ const getDestinationData = (slug: string) => {
           name: "Visit the Limbe Wildlife Centre",
           description:
             "Home to rescued primates including gorillas, chimpanzees, and drills, as well as other wildlife. The center focuses on conservation and rehabilitation.",
-          image: "/placeholder.svg?height=400&width=600",
+          image: "/limbecity2.jpg",
         },
         {
           name: "Relax on Down Beach",
           description:
             "Experience the unique black sand beaches formed from volcanic deposits. Enjoy swimming, sunbathing, and fresh seafood at beachside restaurants.",
-          image: "/placeholder.svg?height=400&width=600",
+          image: "/limbe3.jpg",
         },
         {
           name: "Explore the Limbe Botanical Garden",
           description:
             "Established in 1892, these gardens feature diverse plant species, walking paths, and a stunning view of the Atlantic Ocean.",
-          image: "/placeholder.svg?height=400&width=600",
+          image: "/limbe4.jpg",
         },
         {
           name: "Visit the Limbe Regional Museum",
           description:
             "Learn about the cultural heritage and history of the Southwest Region through artifacts and exhibitions.",
-          image: "/placeholder.svg?height=400&width=600",
+          image: "/limbe5.jpg",
         },
       ],
       tours: [
         {
           id: 2,
           title: "Limbe Wildlife Centre & Black Sand Beaches Day Trip",
-          image: "/placeholder.svg?height=300&width=400",
+          image: "/limbe6.jpg",
           price: 45000,
           duration: "1 day",
           rating: 4.7,
@@ -84,7 +84,7 @@ const getDestinationData = (slug: string) => {
   return {
     name: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, " "),
     region: "Cameroon",
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "/limbe7.png",
     description: `Detailed information about ${
       slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, " ")
     } coming soon.`,
@@ -94,12 +94,12 @@ const getDestinationData = (slug: string) => {
       {
         name: "Explore Local Attractions",
         description: "Discover the unique attractions this destination has to offer.",
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/limbe8.jpg",
       },
       {
         name: "Experience Local Culture",
         description: "Immerse yourself in the rich cultural heritage of the region.",
-        image: "/placeholder.svg?height=400&width=600",
+        image: "/limbe9.jpg",
       },
     ],
     tours: [],
@@ -149,7 +149,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
         {/* Hero Section */}
         <section className="relative h-[500px] overflow-hidden">
           <Image
-            src={destination.image || "/placeholder.svg"}
+            src={destination.image || "/limb10.jpg"}
             alt={destination.name}
             fill
             className="object-cover"
@@ -236,7 +236,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
                       <div key={index} className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div className="relative h-[250px] overflow-hidden rounded-lg">
                           <Image
-                            src={activity.image || "/placeholder.svg"}
+                            src={activity.image || "/limbemap.png"}
                             alt={activity.name}
                             fill
                             className="object-cover"
@@ -360,7 +360,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
                     <h3 className="mb-4 text-lg font-semibold">Map Location</h3>
                     <div className="relative h-[200px] overflow-hidden rounded-lg">
                       <Image
-                        src="/placeholder.svg?height=400&width=400"
+                        src="/MapofCameroon.png"
                         alt={`Map of ${destination.name}`}
                         fill
                         className="object-cover"
@@ -386,7 +386,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
                         >
                           <div className="mr-3 h-10 w-10 overflow-hidden rounded-md">
                             <Image
-                              src="/placeholder.svg?height=100&width=100"
+                              src="/dest1.jpg"
                               alt={nearby}
                               width={40}
                               height={40}
@@ -424,7 +424,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
                 <Card key={index} className="overflow-hidden">
                   <div className="relative h-48">
                     <Image
-                      src="/placeholder.svg?height=300&width=400"
+                      src="/dest2.jpg"
                       alt={related}
                       fill
                       className="object-cover transition-transform hover:scale-105"
