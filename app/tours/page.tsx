@@ -1,23 +1,26 @@
 'use client'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Search, MapPin, Star } from "lucide-react"
+import { Search, MapPin, Star, Loader2, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import MainNav from "@/components/main-nav"
 import Footer from "@/components/footer"
 import TourCard from "@/components/tour-card"
 import { useAuth } from '@/contexts/AuthContext'
 import { redirect } from "next/dist/server/api-utils"
 import { useRouter } from "next/navigation"
+import { fetchTours } from "@/lib/services/tours"
 
 
 
+// Tour categories for filtering
 const tourCategories = [
   { id: "all", name: "All Tours" },
   { id: "adventure", name: "Adventure Tours" },
@@ -27,168 +30,76 @@ const tourCategories = [
   { id: "hiking", name: "Hiking & Trekking" },
 ]
 
-const popularTours = [
-  {
-    id: 1,
-    title: "Mount Cameroon Hiking Adventure",
-    image: "/placeholder.svg?height=300&width=400",
-    price: 85000,
-    duration: "2 days",
-    rating: 4.8,
-    reviews: 124,
-    location: "Buea",
-    tag: "Adventure",
-    description:
-      "Climb West Africa's highest peak with expert guides. Experience breathtaking views and diverse ecosystems.",
-    highlights: [
-      "Summit West Africa's highest mountain",
-      "Experience diverse ecological zones",
-      "Professional mountain guides",
-      "Camping equipment included",
-    ],
-  },
-  {
-    id: 2,
-    title: "Limbe Wildlife Centre & Black Sand Beaches",
-    image: "/placeholder.svg?height=300&width=400",
-    price: 45000,
-    duration: "1 day",
-    rating: 4.7,
-    reviews: 98,
-    location: "Limbe",
-    tag: "Nature",
-    description:
-      "Discover Limbe's famous wildlife center and relax on unique black sand beaches. Includes hotel pickup and lunch.",
-    highlights: [
-      "Visit the Limbe Wildlife Centre and see rescued primates",
-      "Relax on the volcanic black sand beaches",
-      "Enjoy a traditional Cameroonian lunch",
-      "Learn about local conservation efforts",
-    ],
-  },
-  {
-    id: 3,
-    title: "Kribi Waterfall & Beach Excursion",
-    image: "/placeholder.svg?height=300&width=400",
-    price: 55000,
-    duration: "1 day",
-    rating: 4.9,
-    reviews: 156,
-    location: "Kribi",
-    tag: "Beach",
-    description:
-      "Visit the spectacular Lobe Falls where the river meets the ocean and enjoy time on Kribi's pristine beaches.",
-    highlights: [
-      "See the unique Lobe Falls where water cascades directly into the ocean",
-      "Relax on Kribi's beautiful white sand beaches",
-      "Optional boat ride to get closer to the falls",
-      "Fresh seafood lunch at a local restaurant",
-    ],
-  },
-  {
-    id: 4,
-    title: "Yaoundé Cultural Heritage Tour",
-    image: "/placeholder.svg?height=300&width=400",
-    price: 35000,
-    duration: "1 day",
-    rating: 4.6,
-    reviews: 87,
-    location: "Yaoundé",
-    tag: "Cultural",
-    description: "Explore Cameroon's capital city, including government buildings, museums, and cultural landmarks.",
-    highlights: [
-      "Visit the National Museum of Yaoundé",
-      "See the Unity Palace and government district",
-      "Explore the Central Market",
-      "Panoramic views from Mont Fébé",
-    ],
-  },
-  {
-    id: 5,
-    title: "Waza National Park Safari",
-    image: "/placeholder.svg?height=300&width=400",
-    price: 95000,
-    duration: "3 days",
-    rating: 4.9,
-    reviews: 112,
-    location: "Far North",
-    tag: "Wildlife",
-    description:
-      "Experience the incredible wildlife of Waza National Park, home to elephants, lions, giraffes, and numerous bird species.",
-    highlights: [
-      "Game drives in open safari vehicles",
-      "Professional wildlife guides",
-      "Comfortable accommodation in safari lodges",
-      "All meals and refreshments included",
-    ],
-  },
-  {
-    id: 6,
-    title: "Foumban Royal Palace & Artisan Tour",
-    image: "/placeholder.svg?height=300&width=400",
-    price: 50000,
-    duration: "1 day",
-    rating: 4.8,
-    reviews: 64,
-    location: "Foumban",
-    tag: "Cultural",
-    description:
-      "Explore the historic Foumban Royal Palace and meet local artisans known for their exceptional craftsmanship.",
-    highlights: [
-      "Tour the Foumban Royal Palace and Museum",
-      "Meet local artisans and see traditional crafts being made",
-      "Shop for authentic Cameroonian art and crafts",
-      "Learn about the history of the Bamoun Kingdom",
-    ],
-  },
-  {
-    id: 7,
-    title: "Korup National Park Expedition",
-    image: "/placeholder.svg?height=300&width=400",
-    price: 100000,
-    duration: "4 days",
-    rating: 4.7,
-    reviews: 42,
-    location: "Southwest",
-    tag: "Adventure",
-    description:
-      "Explore one of Africa's oldest and most diverse rainforests with expert guides. Spot rare primates and birds.",
-    highlights: [
-      "Guided hikes through pristine rainforest",
-      "Wildlife spotting including rare primates",
-      "Camping in the heart of the forest",
-      "Learn about conservation efforts",
-    ],
-  },
-  {
-    id: 8,
-    title: "Bamenda Highlands Cultural Experience",
-    image: "/placeholder.svg?height=300&width=400",
-    price: 75000,
-    duration: "2 days",
-    rating: 4.6,
-    reviews: 53,
-    location: "Northwest",
-    tag: "Cultural",
-    description:
-      "Immerse yourself in the rich culture of the Bamenda Highlands. Visit traditional villages and witness cultural performances.",
-    highlights: [
-      "Visit traditional Bafut and Bali-Nyonga palaces",
-      "Experience authentic cultural performances",
-      "Meet local craftspeople and artisans",
-      "Stunning mountain scenery and landscapes",
-    ],
-  },
-]
+// Interface for Tour data structure
+interface Tour {
+  id: string
+  title: string
+  image: string
+  price: number
+  duration: string
+  rating: number
+  reviews: number
+  location: string
+  tag: string
+  description: string
+  highlights: string[]
+}
 
 export default function ToursPage() {
-
   const router = useRouter()
-  const {user} = useAuth()
+  const { user } = useAuth()
 
-  if(!user){
+  // State for tours data and UI states
+  const [tours, setTours] = useState<Tour[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [activeCategory, setActiveCategory] = useState("all")
+
+  // Redirect to login if user is not authenticated
+  if (!user) {
     router.push('/login')
   }
+
+  // Fetch tours data on component mount
+  useEffect(() => {
+    const loadTours = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        const toursData = await fetchTours()
+        console.log(toursData)
+        setTours(toursData)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load tours')
+        console.error('Error loading tours:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadTours()
+  }, [])
+
+  // Filter tours based on active category
+  const filteredTours = activeCategory === "all"
+    ? tours
+    : tours.filter(tour => tour.tag.toLowerCase() === activeCategory.toLowerCase())
+
+  // Loading component
+  const LoadingSpinner = () => (
+    <div className="flex items-center justify-center py-12">
+      <Loader2 className="h-8 w-8 animate-spin text-green-700" />
+      <span className="ml-2 text-lg">Loading tours...</span>
+    </div>
+  )
+
+  // Error component
+  const ErrorMessage = ({ message }: { message: string }) => (
+    <Alert className="mx-auto max-w-md">
+      <AlertCircle className="h-4 w-4" />
+      <AlertDescription>{message}</AlertDescription>
+    </Alert>
+  )
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -227,131 +138,137 @@ export default function ToursPage() {
         </section>
 
         <div className="container py-12">
-          {/* Tour Categories */}
-          <Tabs defaultValue="all" className="w-full">
-            <TabsList className="mb-8 grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6">
-              {tourCategories.map((category) => (
-                <TabsTrigger key={category.id} value={category.id} className="text-sm">
-                  {category.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+          {/* Show loading or error state */}
+          {loading && <LoadingSpinner />}
+          {error && <ErrorMessage message={error} />}
 
-            <TabsContent value="all" className="space-y-8">
-              {/* Featured Tours */}
-              <section>
-                <div className="mb-6 flex items-center justify-between">
-                  <h2 className="text-2xl font-bold">Featured Tours</h2>
-                  <Select defaultValue="recommended">
-                    <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Sort by" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="recommended">Recommended</SelectItem>
-                      <SelectItem value="price-low">Price (Low to High)</SelectItem>
-                      <SelectItem value="price-high">Price (High to Low)</SelectItem>
-                      <SelectItem value="rating">Highest Rated</SelectItem>
-                      <SelectItem value="duration">Duration</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+          {/* Tour Categories - only show when not loading and no error */}
+          {!loading && !error && (
+            <Tabs defaultValue="all" className="w-full" onValueChange={setActiveCategory}>
+              <TabsList className="mb-8 grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6">
+                {tourCategories.map((category) => (
+                  <TabsTrigger key={category.id} value={category.id} className="text-sm">
+                    {category.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
 
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {popularTours.slice(0, 3).map((tour) => (
-                    <Card key={tour.id} className="overflow-hidden transition-all hover:shadow-lg">
-                      <div className="relative h-48">
-                        <Badge className="absolute left-2 top-2 z-10 bg-green-700">{tour.tag}</Badge>
-                        <Image
-                          src={tour.image || "/placeholder.svg"}
-                          alt={tour.title}
-                          fill
-                          className="object-cover transition-transform hover:scale-105"
-                        />
-                      </div>
-                      <CardContent className="p-4">
-                        <div className="flex items-center justify-between">
-                          <span className="flex items-center text-sm text-gray-500">
-                            <MapPin className="mr-1 h-4 w-4" />
-                            {tour.location}
-                          </span>
-                          <span className="text-sm text-gray-500">{tour.duration}</span>
-                        </div>
-                        <h3 className="mt-2 line-clamp-2 font-semibold">
-                          <Link href={`/tours/${tour.id}`} className="hover:text-green-700">
-                            {tour.title}
-                          </Link>
-                        </h3>
-                        <div className="mt-2 flex items-center">
-                          <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-                          <span className="ml-1 text-sm font-medium">{tour.rating}</span>
-                          <span className="ml-1 text-sm text-gray-500">({tour.reviews} reviews)</span>
-                        </div>
-                        <div className="mt-4 flex items-center justify-between">
-                          <div>
-                            <span className="text-lg font-bold text-green-700">{tour.price.toLocaleString()} XAF</span>
-                            <span className="text-sm text-gray-500"> per person</span>
-                          </div>
-                          <Link href={`/tours/${tour.id}`}>
-                            <Button className="bg-green-700 hover:bg-green-800" size="sm">
-                              View Details
-                            </Button>
-                          </Link>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </section>
-
-              {/* All Tours */}
-              <section>
-                <h2 className="mb-6 text-2xl font-bold">All Tours</h2>
-                <div className="space-y-6">
-                  {popularTours.map((tour) => (
-                    <TourCard
-                      key={tour.id}
-                      title={tour.title}
-                      image={tour.image}
-                      price={tour.price}
-                      duration={tour.duration}
-                      rating={tour.rating}
-                      reviews={tour.reviews}
-                      location={tour.location}
-                      description={tour.description}
-                      highlights={tour.highlights}
-                    />
-                  ))}
-                </div>
-              </section>
-            </TabsContent>
-
-            {/* Other tabs would have similar content but filtered */}
-            {tourCategories.slice(1).map((category) => (
-              <TabsContent key={category.id} value={category.id} className="space-y-8">
+              <TabsContent value="all" className="space-y-8">
+                {/* Featured Tours */}
                 <section>
-                  <h2 className="mb-6 text-2xl font-bold">{category.name}</h2>
+                  <div className="mb-6 flex items-center justify-between">
+                    <h2 className="text-2xl font-bold">Featured Tours</h2>
+                    <Select defaultValue="recommended">
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Sort by" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="recommended">Recommended</SelectItem>
+                        <SelectItem value="price-low">Price (Low to High)</SelectItem>
+                        <SelectItem value="price-high">Price (High to Low)</SelectItem>
+                        <SelectItem value="rating">Highest Rated</SelectItem>
+                        <SelectItem value="duration">Duration</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {tours.slice(0, 3).map((tour: Tour) => (
+                      <Card key={tour.id} className="overflow-hidden transition-all hover:shadow-lg">
+                        <div className="relative h-48">
+                          <Badge className="absolute left-2 top-2 z-10 bg-green-700">{tour.tag}</Badge>
+                          <Image
+                            src={tour.image || "/placeholder.svg"}
+                            alt={tour.title}
+                            fill
+                            className="object-cover transition-transform hover:scale-105"
+                          />
+                        </div>
+                        <CardContent className="p-4">
+                          <div className="flex items-center justify-between">
+                            <span className="flex items-center text-sm text-gray-500">
+                              <MapPin className="mr-1 h-4 w-4" />
+                              {tour.location}
+                            </span>
+                            <span className="text-sm text-gray-500">{tour.duration}</span>
+                          </div>
+                          <h3 className="mt-2 line-clamp-2 font-semibold">
+                            <Link href={`/tours/${tour.id}`} className="hover:text-green-700">
+                              {tour.title}
+                            </Link>
+                          </h3>
+                          <div className="mt-2 flex items-center">
+                            <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
+                            <span className="ml-1 text-sm font-medium">{tour.rating}</span>
+                            <span className="ml-1 text-sm text-gray-500">({tour.reviews} reviews)</span>
+                          </div>
+                          <div className="mt-4 flex items-center justify-between">
+                            <div>
+                              <span className="text-lg font-bold text-green-700">{tour.price.toLocaleString()} XAF</span>
+                              <span className="text-sm text-gray-500"> per person</span>
+                            </div>
+                            <Link href={`/tours/${tour.id}`}>
+                              <Button className="bg-green-700 hover:bg-green-800" size="sm">
+                                View Details
+                              </Button>
+                            </Link>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </section>
+
+                {/* All Tours */}
+                <section>
+                  <h2 className="mb-6 text-2xl font-bold">All Tours</h2>
                   <div className="space-y-6">
-                    {popularTours
-                      .filter((tour) => tour.tag.toLowerCase() === category.id.toLowerCase())
-                      .map((tour) => (
-                        <TourCard
-                          key={tour.id}
-                          title={tour.title}
-                          image={tour.image}
-                          price={tour.price}
-                          duration={tour.duration}
-                          rating={tour.rating}
-                          reviews={tour.reviews}
-                          location={tour.location}
-                          description={tour.description}
-                          highlights={tour.highlights}
-                        />
-                      ))}
+                    {tours.map((tour: Tour) => (
+                      <TourCard
+                        key={tour.id}
+                        title={tour.title}
+                        image={tour.image}
+                        price={tour.price}
+                        duration={tour.duration}
+                        rating={tour.rating}
+                        reviews={tour.reviews}
+                        location={tour.location}
+                        description={tour.description}
+                        highlights={tour.highlights}
+                      />
+                    ))}
                   </div>
                 </section>
               </TabsContent>
-            ))}
-          </Tabs>
+
+              {/* Other tabs would have similar content but filtered */}
+              {tourCategories.slice(1).map((category) => (
+                <TabsContent key={category.id} value={category.id} className="space-y-8">
+                  <section>
+                    <h2 className="mb-6 text-2xl font-bold">{category.name}</h2>
+                    <div className="space-y-6">
+                      {filteredTours
+                        .filter((tour: Tour) => tour.tag.toLowerCase() === category.id.toLowerCase())
+                        .map((tour: Tour) => (
+                          <TourCard
+                            key={tour.id}
+                            title={tour.title}
+                            image={tour.image}
+                            price={tour.price}
+                            duration={tour.duration}
+                            rating={tour.rating}
+                            reviews={tour.reviews}
+                            location={tour.location}
+                            description={tour.description}
+                            highlights={tour.highlights}
+                          />
+                        ))}
+                    </div>
+                  </section>
+                </TabsContent>
+              ))}
+            </Tabs>
+          )}
         </div>
 
         {/* Why Choose Us */}

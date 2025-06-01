@@ -28,22 +28,7 @@ export default function DayTripsPage() {
       </header>
 
       <main className="flex-1">
-        {/* Breadcrumb */}
-        <div className="bg-gray-100 py-3">
-          <div className="container">
-            <div className="flex items-center text-sm">
-              <Link href="/" className="text-gray-500 hover:text-green-700">
-                Home
-              </Link>
-              <ChevronRight className="mx-2 h-4 w-4 text-gray-400" />
-              <Link href="/tours" className="text-gray-500 hover:text-green-700">
-                Tours
-              </Link>
-              <ChevronRight className="mx-2 h-4 w-4 text-gray-400" />
-              <span className="font-medium text-gray-900">Day Trips & Excursions</span>
-            </div>
-          </div>
-        </div>
+       
 
         {/* Page Header */}
         <div className="bg-green-700 py-8 text-white">

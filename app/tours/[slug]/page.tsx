@@ -30,26 +30,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
       </header>
 
       <main className="flex-1">
-        {/* Breadcrumb */}
-        <div className="bg-gray-100 py-3">
-          <div className="container">
-            <div className="flex items-center text-sm">
-              <Link href="/" className="text-gray-500 hover:text-green-700">
-                Home
-              </Link>
-              <ChevronRight className="mx-2 h-4 w-4 text-gray-400" />
-              <Link href="/tours" className="text-gray-500 hover:text-green-700">
-                Tours
-              </Link>
-              <ChevronRight className="mx-2 h-4 w-4 text-gray-400" />
-              <Link href="/tours/day-trips" className="text-gray-500 hover:text-green-700">
-                Day Trips & Excursions
-              </Link>
-              <ChevronRight className="mx-2 h-4 w-4 text-gray-400" />
-              <span className="font-medium text-gray-900">{tourName}</span>
-            </div>
-          </div>
-        </div>
+       
 
         {/* Tour Header */}
         <div className="container py-6">
@@ -535,56 +516,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
           </div>
         </div>
 
-        {/* Similar Tours */}
-        <section className="bg-green-50 py-12">
-          <div className="container">
-            <h2 className="mb-8 text-2xl font-bold">Similar Tours You Might Like</h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  title: "Mount Cameroon Hiking Day Excursion",
-                  image: "/placeholder.svg?height=300&width=400",
-                  price: 65000,
-                  location: "Buea",
-                },
-                {
-                  title: "Kribi Waterfall & Beach Excursion",
-                  image: "/placeholder.svg?height=300&width=400",
-                  price: 55000,
-                  location: "Kribi",
-                },
-                {
-                  title: "Douala City & Cultural Tour",
-                  image: "/placeholder.svg?height=300&width=400",
-                  price: 35000,
-                  location: "Douala",
-                },
-              ].map((tour, index) => (
-                <Card key={index} className="overflow-hidden">
-                  <div className="relative h-48">
-                    <Image src={tour.image || "/placeholder.svg"} alt={tour.title} fill className="object-cover" />
-                  </div>
-                  <CardContent className="p-4">
-                    <div className="flex items-center">
-                      <MapPin className="mr-1 h-4 w-4 text-gray-500" />
-                      <span className="text-sm text-gray-500">{tour.location}</span>
-                    </div>
-                    <h3 className="mb-2 line-clamp-2 font-semibold">{tour.title}</h3>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-lg font-bold text-green-700">{tour.price.toLocaleString()} XAF</span>
-                        <span className="text-sm text-gray-500"> per person</span>
-                      </div>
-                      <Button className="bg-green-700 hover:bg-green-800" size="sm">
-                        View
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        
       </main>
 
       <Footer />
