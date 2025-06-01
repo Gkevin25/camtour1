@@ -1,4 +1,5 @@
-"use client"
+'use client'
+import { useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Search, MapPin, Star } from "lucide-react"
@@ -11,6 +12,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import MainNav from "@/components/main-nav"
 import Footer from "@/components/footer"
 import TourCard from "@/components/tour-card"
+import { useAuth } from '@/contexts/AuthContext'
+import { redirect } from "next/dist/server/api-utils"
+import { useRouter } from "next/navigation"
 
 
 
@@ -177,43 +181,28 @@ const popularTours = [
   },
 ]
 
-
-
-import { useEffect } from "react"
-import { useAuth } from "@/contexts/AuthContext"
-import { useRouter } from "next/navigation"
-
 export default function ToursPage() {
-  const { user, loading } = useAuth()
+
   const router = useRouter()
+  const {user} = useAuth()
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push("/signup")
-    }
-  }, [user, loading, router])
-
-  if (loading) {
-    return <div>Loading...</div>
-  }
-
-  if (!user) {
-    return null
+  if(!user){
+    router.push('/login')
   }
 
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">
-        <div className="container flex h-16 items-center">
-          <div className="flex items-center mr-8">
+        <div className="container flex h-16 items-center justify-between">
+          <div className="flex items-center">
             <Link href="/">
               <Image src="/logo.png" alt="CamTour Logo" width={120} height={80} className="h-12 w-auto" />
             </Link>
           </div>
-          <div className="flex-1 flex justify-center">
-            <MainNav />
+          <MainNav />
+          <div className="flex items-center gap-4">
+             
           </div>
-          <div className="flex-2"></div>
         </div>
       </header>
 
@@ -234,7 +223,6 @@ export default function ToursPage() {
               Discover the best tours and experiences across Cameroon's diverse landscapes and rich cultural heritage
             </p>
 
-            
           </div>
         </section>
 

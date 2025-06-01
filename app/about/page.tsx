@@ -48,7 +48,7 @@ export default function AboutPage() {
               <h2 className="mb-6 text-3xl font-bold">Our Story</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  CamTour was founded in 2015 by a group of passionate Cameroonian travel enthusiasts who saw the need
+                  CamTour was founded in 2025 by a group of passionate Cameroonian travel enthusiasts who saw the need
                   for authentic, responsible tourism experiences in their beautiful country. What began as a small
                   operation offering guided hikes up Mount Cameroon has grown into Cameroon's premier tour operator.
                 </p>
