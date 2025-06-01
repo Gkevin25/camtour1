@@ -1,18 +1,114 @@
+'use client'
+import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, Star, Clock, MapPin, Users, Calendar, Check, Info } from "lucide-react"
+import { ChevronRight, Star, Clock, MapPin, Users, Calendar, Check, Info, Loader2, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import MainNav from "@/components/main-nav"
 import Footer from "@/components/footer"
+import { fetchTourById } from "@/lib/services/tours"
+import { useAuth } from '@/contexts/AuthContext'
+
+// Interface for Tour data structure
+interface Tour {
+  id: string
+  title: string
+  image: string
+  price: number
+  duration: string
+  rating: number
+  reviews: number
+  location: string
+  tag: string
+  description: string
+  highlights: string[]
+}
 
 export default function TourDetailPage({ params }: { params: { slug: string } }) {
-  // This would normally fetch data based on the slug
-  const tourName = params.slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ")
+  const router = useRouter()
+  const { user } = useAuth()
+
+  // State for tour data and UI states
+  const [tour, setTour] = useState<Tour | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [notFound, setNotFound] = useState(false)
+
+  // Redirect to login if user is not authenticated
+  if (!user) {
+    router.push('/login')
+  }
+
+  // Fetch tour data on component mount
+  useEffect(() => {
+    const loadTour = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        setNotFound(false)
+
+        console.log('🔍 Attempting to fetch tour with ID:', params.slug)
+
+        // Use the slug as the tour ID
+        const tourData = await fetchTourById(params.slug)
+        console.log('✅ Successfully fetched tour data:', tourData)
+        setTour(tourData as Tour)
+      } catch (err) {
+        console.error('❌ Error loading tour:', err)
+        console.error('❌ Error details:', {
+          message: err instanceof Error ? err.message : 'Unknown error',
+          stack: err instanceof Error ? err.stack : 'No stack trace',
+          tourId: params.slug
+        })
+
+        if (err instanceof Error && err.message.includes('not found')) {
+          setNotFound(true)
+        } else {
+          setError(err instanceof Error ? err.message : 'Failed to load tour details')
+        }
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    if (params.slug) {
+      console.log('🚀 Starting tour fetch for slug:', params.slug)
+      loadTour()
+    }
+  }, [params.slug])
+
+  // Loading component
+  const LoadingSpinner = () => (
+    <div className="flex items-center justify-center py-12">
+      <Loader2 className="h-8 w-8 animate-spin text-green-700" />
+      <span className="ml-2 text-lg">Loading tour details...</span>
+    </div>
+  )
+
+  // Error component
+  const ErrorMessage = ({ message }: { message: string }) => (
+    <Alert className="mx-auto max-w-md">
+      <AlertCircle className="h-4 w-4" />
+      <AlertDescription>{message}</AlertDescription>
+    </Alert>
+  )
+
+  // 404 Not Found component
+  const NotFoundMessage = () => (
+    <div className="container py-12 text-center">
+      <h1 className="text-4xl font-bold text-gray-900 mb-4">Tour Not Found</h1>
+      <p className="text-gray-600 mb-8">The tour you're looking for doesn't exist or has been removed.</p>
+      <Link href="/tours">
+        <Button className="bg-green-700 hover:bg-green-800">
+          Browse All Tours
+        </Button>
+      </Link>
+    </div>
+  )
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -30,68 +126,86 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
       </header>
 
       <main className="flex-1">
-       
-
-        {/* Tour Header */}
-        <div className="container py-6">
-          <h1 className="text-3xl font-bold">{tourName}</h1>
-          <div className="mt-2 flex flex-wrap items-center gap-4">
-            <div className="flex items-center">
-              <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
-              <span className="ml-1 font-medium">4.8</span>
-              <span className="ml-1 text-gray-500">(124 reviews)</span>
-            </div>
-            <div className="flex items-center">
-              <MapPin className="mr-1 h-5 w-5 text-gray-500" />
-              <span>Limbe, Cameroon</span>
-            </div>
-            <div className="flex items-center">
-              <Clock className="mr-1 h-5 w-5 text-gray-500" />
-              <span>8 hours</span>
-            </div>
+        {/* Show loading state */}
+        {loading && (
+          <div className="container py-12">
+            <LoadingSpinner />
           </div>
-        </div>
+        )}
 
-        {/* Tour Gallery */}
-        <div className="container mb-8">
-          <div className="grid grid-cols-4 grid-rows-2 gap-2">
-            <div className="col-span-2 row-span-2 relative h-[400px]">
-              <Image
-                src="/placeholder.svg?height=800&width=600"
-                alt={tourName}
-                fill
-                className="rounded-l-lg object-cover"
-              />
-            </div>
-            <div className="relative h-[196px]">
-              <Image src="/placeholder.svg?height=400&width=300" alt="Tour image" fill className="object-cover" />
-            </div>
-            <div className="relative h-[196px]">
-              <Image
-                src="/placeholder.svg?height=400&width=300"
-                alt="Tour image"
-                fill
-                className="rounded-tr-lg object-cover"
-              />
-            </div>
-            <div className="relative h-[196px]">
-              <Image src="/placeholder.svg?height=400&width=300" alt="Tour image" fill className="object-cover" />
-            </div>
-            <div className="relative h-[196px]">
-              <Image
-                src="/placeholder.svg?height=400&width=300"
-                alt="Tour image"
-                fill
-                className="rounded-br-lg object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center rounded-br-lg bg-black/50">
-                <Button variant="outline" className="text-white">
-                  View All Photos
-                </Button>
+        {/* Show error state */}
+        {error && (
+          <div className="container py-12">
+            <ErrorMessage message={error} />
+          </div>
+        )}
+
+        {/* Show not found state */}
+        {notFound && <NotFoundMessage />}
+
+        {/* Show tour content when loaded successfully */}
+        {!loading && !error && !notFound && tour && (
+          <>
+            {/* Tour Header */}
+            <div className="container py-6">
+              <h1 className="text-3xl font-bold">{tour.title}</h1>
+              <div className="mt-2 flex flex-wrap items-center gap-4">
+                <div className="flex items-center">
+                  <Star className="h-5 w-5 fill-yellow-500 text-yellow-500" />
+                  <span className="ml-1 font-medium">{tour.rating}</span>
+                  <span className="ml-1 text-gray-500">({tour.reviews} reviews)</span>
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="mr-1 h-5 w-5 text-gray-500" />
+                  <span>{tour.location}</span>
+                </div>
+                <div className="flex items-center">
+                  <Clock className="mr-1 h-5 w-5 text-gray-500" />
+                  <span>{tour.duration}</span>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+
+            {/* Tour Gallery */}
+            <div className="container mb-8">
+              <div className="grid grid-cols-4 grid-rows-2 gap-2">
+                <div className="col-span-2 row-span-2 relative h-[400px]">
+                  <Image
+                    src={tour.image || "/placeholder.svg?height=800&width=600"}
+                    alt={tour.title}
+                    fill
+                    className="rounded-l-lg object-cover"
+                  />
+                </div>
+                <div className="relative h-[196px]">
+                  <Image src={tour.image || "/placeholder.svg?height=400&width=300"} alt="Tour image" fill className="object-cover" />
+                </div>
+                <div className="relative h-[196px]">
+                  <Image
+                    src={tour.image || "/placeholder.svg?height=400&width=300"}
+                    alt="Tour image"
+                    fill
+                    className="rounded-tr-lg object-cover"
+                  />
+                </div>
+                <div className="relative h-[196px]">
+                  <Image src={tour.image || "/placeholder.svg?height=400&width=300"} alt="Tour image" fill className="object-cover" />
+                </div>
+                <div className="relative h-[196px]">
+                  <Image
+                    src={tour.image || "/placeholder.svg?height=400&width=300"}
+                    alt="Tour image"
+                    fill
+                    className="rounded-br-lg object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center rounded-br-lg bg-black/50">
+                    <Button variant="outline" className="text-white">
+                      View All Photos
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
         <div className="container pb-12">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -109,45 +223,26 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                   <div>
                     <h2 className="mb-4 text-2xl font-semibold">About This Tour</h2>
                     <p className="text-gray-700">
-                      Discover the natural beauty and wildlife of Limbe on this full-day excursion from Douala. Visit
-                      the famous Limbe Wildlife Centre, home to rescued primates and other animals native to Cameroon's
-                      forests. After an educational tour of the center, enjoy a traditional Cameroonian lunch before
-                      heading to Limbe's unique black sand beaches for relaxation and swimming.
-                    </p>
-                    <p className="mt-4 text-gray-700">
-                      This tour is perfect for nature lovers, families, and anyone interested in conservation efforts in
-                      Cameroon. Your knowledgeable guide will share insights about local culture, wildlife, and the
-                      volcanic origins of Limbe's distinctive beaches.
+                      {tour.description}
                     </p>
                   </div>
 
                   <div>
                     <h3 className="mb-3 text-xl font-semibold">Tour Highlights</h3>
                     <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                      <li className="flex items-start">
-                        <Check className="mr-2 h-5 w-5 text-green-700" />
-                        <span>Visit the Limbe Wildlife Centre and see rescued primates</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="mr-2 h-5 w-5 text-green-700" />
-                        <span>Relax on the volcanic black sand beaches</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="mr-2 h-5 w-5 text-green-700" />
-                        <span>Enjoy a traditional Cameroonian lunch</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="mr-2 h-5 w-5 text-green-700" />
-                        <span>Learn about local conservation efforts</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="mr-2 h-5 w-5 text-green-700" />
-                        <span>Spectacular views of Mount Cameroon (weather permitting)</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="mr-2 h-5 w-5 text-green-700" />
-                        <span>Comfortable round-trip transportation from your hotel</span>
-                      </li>
+                      {tour.highlights && tour.highlights.length > 0 ? (
+                        tour.highlights.map((highlight, index) => (
+                          <li key={index} className="flex items-start">
+                            <Check className="mr-2 h-5 w-5 text-green-700" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))
+                      ) : (
+                        <li className="flex items-start">
+                          <Check className="mr-2 h-5 w-5 text-green-700" />
+                          <span>Detailed highlights coming soon</span>
+                        </li>
+                      )}
                     </ul>
                   </div>
 
@@ -157,7 +252,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                       <div className="grid grid-cols-1 divide-y sm:grid-cols-2 sm:divide-x sm:divide-y-0">
                         <div className="p-4">
                           <h4 className="font-medium text-gray-500">Tour Duration</h4>
-                          <p>8 hours</p>
+                          <p>{tour.duration}</p>
                         </div>
                         <div className="p-4">
                           <h4 className="font-medium text-gray-500">Group Size</h4>
@@ -339,16 +434,16 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                   <div className="rounded-lg border p-6">
                     <div className="mb-6 flex items-center justify-between">
                       <div>
-                        <div className="text-4xl font-bold">4.8</div>
+                        <div className="text-4xl font-bold">{tour.rating}</div>
                         <div className="flex items-center">
                           {[1, 2, 3, 4, 5].map((star) => (
                             <Star
                               key={star}
-                              className={`h-5 w-5 ${star <= 5 ? "fill-yellow-500 text-yellow-500" : "text-gray-300"}`}
+                              className={`h-5 w-5 ${star <= Math.floor(tour.rating) ? "fill-yellow-500 text-yellow-500" : "text-gray-300"}`}
                             />
                           ))}
                         </div>
-                        <div className="mt-1 text-sm text-gray-500">Based on 124 reviews</div>
+                        <div className="mt-1 text-sm text-gray-500">Based on {tour.reviews} reviews</div>
                       </div>
 
                       <div className="hidden space-y-2 md:block">
@@ -456,7 +551,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
               <div className="sticky top-24 rounded-lg border bg-white p-6 shadow-sm">
                 <div className="mb-4 text-center">
                   <div className="text-sm text-gray-500">From</div>
-                  <div className="text-3xl font-bold text-green-700">45,000 XAF</div>
+                  <div className="text-3xl font-bold text-green-700">{tour.price.toLocaleString()} XAF</div>
                   <div className="text-sm text-gray-500">per person</div>
                 </div>
 
@@ -500,7 +595,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center">
                     <Clock className="mr-2 h-5 w-5 text-gray-500" />
-                    <span>Duration: 8 hours</span>
+                    <span>Duration: {tour.duration}</span>
                   </div>
                   <div className="flex items-center">
                     <Users className="mr-2 h-5 w-5 text-gray-500" />
@@ -515,8 +610,8 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
             </div>
           </div>
         </div>
-
-        
+          </>
+        )}
       </main>
 
       <Footer />

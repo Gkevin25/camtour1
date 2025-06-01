@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 
 interface TourCardProps {
+  id: string
   title: string
   image: string
   price: number
@@ -18,6 +19,7 @@ interface TourCardProps {
 }
 
 export default function TourCard({
+  id,
   title,
   image,
   price,
@@ -79,7 +81,7 @@ export default function TourCard({
                 <div className="text-sm text-gray-500">From</div>
                 <div className="text-2xl font-bold text-green-700">{price.toLocaleString()} XAF</div>
               </div>
-              <Link href={`/tours/${title.toLowerCase().replace(/\s+/g, "-")}`}>
+              <Link href={`/tours/${id}`}>
                 <Button className="bg-green-700 hover:bg-green-800">View Details</Button>
               </Link>
             </div>

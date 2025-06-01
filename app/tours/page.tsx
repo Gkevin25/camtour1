@@ -2,9 +2,8 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Search, MapPin, Star, Loader2, AlertCircle } from "lucide-react"
+import { MapPin, Star, Loader2, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -14,7 +13,6 @@ import MainNav from "@/components/main-nav"
 import Footer from "@/components/footer"
 import TourCard from "@/components/tour-card"
 import { useAuth } from '@/contexts/AuthContext'
-import { redirect } from "next/dist/server/api-utils"
 import { useRouter } from "next/navigation"
 import { fetchTours } from "@/lib/services/tours"
 
@@ -226,6 +224,7 @@ export default function ToursPage() {
                     {tours.map((tour: Tour) => (
                       <TourCard
                         key={tour.id}
+                        id={tour.id}
                         title={tour.title}
                         image={tour.image}
                         price={tour.price}
@@ -252,6 +251,7 @@ export default function ToursPage() {
                         .map((tour: Tour) => (
                           <TourCard
                             key={tour.id}
+                            id={tour.id}
                             title={tour.title}
                             image={tour.image}
                             price={tour.price}
