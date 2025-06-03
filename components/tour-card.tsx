@@ -9,6 +9,7 @@ interface TourCardProps {
   id: string
   title: string
   image: string
+  imageGallery?: string[]
   price: number
   duration: string
   rating: number
@@ -22,6 +23,7 @@ export default function TourCard({
   id,
   title,
   image,
+  imageGallery,
   price,
   duration,
   rating,

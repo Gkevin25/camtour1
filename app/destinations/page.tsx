@@ -192,12 +192,7 @@ export default function DestinationsPage() {
           </div>
           <MainNav />
           <div className="flex items-center gap-4">
-             <Link href="/login">
-              <Button variant="ghost">Sign In</Button>
-            </Link>
-            <Link href="/signup">
-              <Button className="bg-green-700 hover:bg-green-800">Sign Up</Button>
-            </Link>
+            
           </div>
         </div>
       </header>

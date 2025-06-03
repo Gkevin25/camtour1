@@ -61,13 +61,6 @@ export default function DebugToursPage() {
               <p><strong>Price:</strong> {tour.price} XAF</p>
               <p><strong>Duration:</strong> {tour.duration}</p>
               <p><strong>Tag:</strong> {tour.tag}</p>
-              <p><strong>Main Image:</strong> {tour.image ? 'Yes' : 'No'}</p>
-              <p><strong>Gallery Images:</strong> {tour.imageGallery ? tour.imageGallery.length : 0} images</p>
-              {tour.image && (
-                <div className="mt-2">
-                  <p><strong>Image URL:</strong> <span className="text-xs break-all">{tour.image}</span></p>
-                </div>
-              )}
               <div className="mt-2">
                 <Button 
                   onClick={() => window.open(`/tours/${tour.id}`, '_blank')}

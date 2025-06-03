@@ -72,6 +72,7 @@ const getDestinationData = (slug: string) => {
             "Learn about local conservation efforts",
           ],
         },
+        
       ],
       weather:
         "Limbe has a tropical monsoon climate with a distinct wet season from June to October and a drier season from November to May. Average temperatures range from 23°C to 32°C (73°F to 90°F) throughout the year.",
@@ -122,8 +123,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
           </div>
           <MainNav />
           <div className="flex items-center gap-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button className="bg-green-700 hover:bg-green-800">Sign Up</Button>
+            
           </div>
         </div>
       </header>
@@ -267,8 +267,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
                           reviews={tour.reviews}
                           location={tour.location}
                           description={tour.description}
-                          highlights={tour.highlights}
-                        />
+                          highlights={tour.highlights} id={""}                        />
                       ))}
                     </div>
                   ) : (

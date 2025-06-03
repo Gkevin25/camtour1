@@ -33,6 +33,7 @@ interface Tour {
   id: string
   title: string
   image: string
+  imageGallery: string[]
   price: number
   duration: string
   rating: number
@@ -227,6 +228,7 @@ export default function ToursPage() {
                         id={tour.id}
                         title={tour.title}
                         image={tour.image}
+                        imageGallery={tour.imageGallery}
                         price={tour.price}
                         duration={tour.duration}
                         rating={tour.rating}
@@ -254,6 +256,7 @@ export default function ToursPage() {
                             id={tour.id}
                             title={tour.title}
                             image={tour.image}
+                            imageGallery={tour.imageGallery}
                             price={tour.price}
                             duration={tour.duration}
                             rating={tour.rating}

@@ -18,6 +18,7 @@ interface Tour {
   id: string
   title: string
   image: string
+  imageGallery: string[]
   price: number
   duration: string
   rating: number
@@ -169,6 +170,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
             {/* Tour Gallery */}
             <div className="container mb-8">
               <div className="grid grid-cols-4 grid-rows-2 gap-2">
+                {/* Main image - always show the primary tour image */}
                 <div className="col-span-2 row-span-2 relative h-[400px]">
                   <Image
                     src={tour.image || "/placeholder.svg?height=800&width=600"}
@@ -177,33 +179,42 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                     className="rounded-l-lg object-cover"
                   />
                 </div>
-                <div className="relative h-[196px]">
-                  <Image src={tour.image || "/placeholder.svg?height=400&width=300"} alt="Tour image" fill className="object-cover" />
-                </div>
-                <div className="relative h-[196px]">
-                  <Image
-                    src={tour.image || "/placeholder.svg?height=400&width=300"}
-                    alt="Tour image"
-                    fill
-                    className="rounded-tr-lg object-cover"
-                  />
-                </div>
-                <div className="relative h-[196px]">
-                  <Image src={tour.image || "/placeholder.svg?height=400&width=300"} alt="Tour image" fill className="object-cover" />
-                </div>
-                <div className="relative h-[196px]">
-                  <Image
-                    src={tour.image || "/placeholder.svg?height=400&width=300"}
-                    alt="Tour image"
-                    fill
-                    className="rounded-br-lg object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center rounded-br-lg bg-black/50">
-                    <Button variant="outline" className="text-white">
-                      View All Photos
-                    </Button>
-                  </div>
-                </div>
+
+                {/* Gallery images - show from imageGallery array or fallback to main image */}
+                {Array.from({ length: 4 }, (_, index) => {
+                  const galleryImage = tour.imageGallery && tour.imageGallery[index]
+                    ? tour.imageGallery[index]
+                    : tour.image || "/placeholder.svg?height=400&width=300"
+
+                  const isLastImage = index === 3
+                  const hasMoreImages = tour.imageGallery && tour.imageGallery.length > 4
+
+                  return (
+                    <div key={index} className="relative h-[196px]">
+                      <Image
+                        src={galleryImage}
+                        alt={`${tour.title} - Image ${index + 2}`}
+                        fill
+                        className={`object-cover ${
+                          index === 1 ? "rounded-tr-lg" :
+                          index === 3 ? "rounded-br-lg" : ""
+                        }`}
+                      />
+                      {isLastImage && hasMoreImages && (
+                        <div className="absolute inset-0 flex items-center justify-center rounded-br-lg bg-black/50">
+                          <Button variant="outline" className="text-white">
+                            +{tour.imageGallery.length - 4} More Photos
+                          </Button>
+                        </div>
+                      )}
+                      {isLastImage && !hasMoreImages && (
+                        <div className="absolute inset-0 flex items-center justify-center rounded-br-lg bg-black/50">
+                         
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
