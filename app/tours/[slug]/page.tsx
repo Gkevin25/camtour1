@@ -12,6 +12,10 @@ import MainNav from "@/components/main-nav"
 import Footer from "@/components/footer"
 import { fetchTourById } from "@/lib/services/tours"
 import { useAuth } from '@/contexts/AuthContext'
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Calendar as CalendarComponent } from "@/components/ui/calendar"
+import { format } from "date-fns"
+
 
 // Interface for Tour data structure
 interface Tour {
@@ -38,6 +42,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [notFound, setNotFound] = useState(false)
+  const [date, setDate] = useState<Date | undefined>(undefined)
 
   // Redirect to login if user is not authenticated
   if (!user) {
@@ -567,14 +572,19 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                 </div>
 
                 <div className="mb-6 space-y-4">
-                  <div>
-                    <label className="mb-1 block text-sm font-medium">Select Date</label>
-                    <div className="relative">
-                      <div className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background">
-                        <Calendar className="mr-2 h-4 w-4 text-gray-500" />
-                        <span>Select a date</span>
-                      </div>
-                    </div>
+                 <div className="relative">
+                   <Popover>
+                     <PopoverTrigger asChild>
+                       <Button variant="outline" className="w-full justify-start text-left font-normal bg-green-700 text-white hover:bg-green-800">
+                           <Calendar className="mr-2 h-4 w-4" />
+                          {date ? format(date, "PPP") : <span>Pick a date</span>}
+                        </Button>
+                       </PopoverTrigger>
+                       <PopoverContent className="w-auto p-0">
+                          <CalendarComponent mode="single" selected={date} onSelect={setDate} initialFocus className="bg-black text-white"
+                          fromDate={new Date()} />
+                        </PopoverContent>
+                    </Popover>
                   </div>
 
                   <div>
