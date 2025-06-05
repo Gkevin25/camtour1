@@ -15,6 +15,8 @@ import { useAuth } from '@/contexts/AuthContext'
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Calendar as CalendarComponent } from "@/components/ui/calendar"
 import { format } from "date-fns"
+import { sendBookingConfirmationEmail, initializeEmailJS, testEmailJS, type BookingData } from "@/lib/services/email"
+import { toast, Toaster } from "sonner"
 
 
 // Interface for Tour data structure
@@ -43,6 +45,8 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
   const [error, setError] = useState<string | null>(null)
   const [notFound, setNotFound] = useState(false)
   const [date, setDate] = useState<Date | undefined>(undefined)
+  const [numberOfTravelers, setNumberOfTravelers] = useState<number>(1)
+  const [isBooking, setIsBooking] = useState(false)
 
   // Redirect to login if user is not authenticated
   if (!user) {
@@ -86,6 +90,94 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
       loadTour()
     }
   }, [params.slug])
+
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    initializeEmailJS()
+  }, [])
+
+  // Handle booking confirmation
+  const handleBookNow = async () => {
+    console.log('🔍 handleBookNow called with user:', user)
+
+    if (!tour || !user) {
+      toast.error('Please log in to book this tour')
+      return
+    }
+
+    if (!date) {
+      toast.error('Please select a booking date')
+      return
+    }
+
+    // Debug user object
+    console.log('🔍 User object:', user)
+    console.log('🔍 User email:', user.email)
+    console.log('🔍 User name:', user.name)
+
+    // Validate user email - Appwrite user object uses 'email' property
+    const userEmail = user.email
+    if (!userEmail) {
+      toast.error('User email not found. Please log in again.')
+      return
+    }
+
+    setIsBooking(true)
+
+    try {
+      const totalPrice = tour.price * numberOfTravelers
+
+      const bookingData: BookingData = {
+        userEmail: userEmail,
+        userName: user.name || userEmail.split('@')[0],
+        tourTitle: tour.title,
+        tourPrice: tour.price,
+        tourDuration: tour.duration,
+        tourLocation: tour.location,
+        tourDescription: tour.description,
+        tourHighlights: tour.highlights,
+        bookingDate: format(date, 'PPPP'),
+        numberOfTravelers,
+        totalPrice
+      }
+
+      console.log('📧 Sending booking confirmation...', bookingData)
+
+      const result = await sendBookingConfirmationEmail(bookingData)
+
+      if (result.success) {
+        toast.success('Booking confirmed! Check your email for details.')
+      } else {
+        toast.error(result.message)
+      }
+
+    } catch (error) {
+      console.error('❌ Booking error:', error)
+      toast.error('Failed to process booking. Please try again.')
+    } finally {
+      setIsBooking(false)
+    }
+  }
+
+  // Test EmailJS configuration
+  const handleTestEmail = async () => {
+    if (!user?.email) {
+      toast.error('Please log in to test email')
+      return
+    }
+
+    try {
+      const result = await testEmailJS(user.email)
+      if (result.success) {
+        toast.success('Test email sent successfully!')
+      } else {
+        toast.error(`Test email failed: ${result.message}`)
+      }
+    } catch (error) {
+      toast.error('Test email failed')
+      console.error('Test email error:', error)
+    }
+  }
 
   // Loading component
   const LoadingSpinner = () => (
@@ -590,18 +682,53 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                   <div>
                     <label className="mb-1 block text-sm font-medium">Number of Travelers</label>
                     <div className="relative">
-                      <select className="h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background">
+                      <select
+                        className="h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background"
+                        value={numberOfTravelers}
+                        onChange={(e) => setNumberOfTravelers(Number(e.target.value))}
+                      >
                         <option value="1">1 Adult</option>
                         <option value="2">2 Adults</option>
                         <option value="3">3 Adults</option>
                         <option value="4">4 Adults</option>
                         <option value="5">5 Adults</option>
+                        <option value="6">6 Adults</option>
+                        <option value="7">7 Adults</option>
+                        <option value="8">8 Adults</option>
                       </select>
                     </div>
                   </div>
                 </div>
 
-                <Button className="mb-4 w-full bg-green-700 hover:bg-green-800">Book Now</Button>
+                {/* Total Price Display */}
+                <div className="mb-4 rounded-md bg-gray-50 p-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">Total Price:</span>
+                    <span className="text-lg font-bold text-green-700">
+                      {(tour.price * numberOfTravelers).toLocaleString()} XAF
+                    </span>
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    {tour.price.toLocaleString()} XAF × {numberOfTravelers} traveler{numberOfTravelers > 1 ? 's' : ''}
+                  </div>
+                </div>
+
+                <Button
+                  className="mb-2 w-full bg-green-700 hover:bg-green-800 disabled:opacity-50"
+                  onClick={handleBookNow}
+                  disabled={isBooking || !date}
+                >
+                  {isBooking ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending Confirmation...
+                    </>
+                  ) : (
+                    'Book Now'
+                  )}
+                </Button>
+
+
 
                 <div className="mb-6 rounded-md bg-green-50 p-3 text-sm text-green-800">
                   <div className="flex items-start">
@@ -636,6 +763,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
       </main>
 
       <Footer />
+      <Toaster position="top-right" richColors />
     </div>
   )
 }
