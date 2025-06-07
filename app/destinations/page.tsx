@@ -15,7 +15,7 @@ const destinations = [
       "Explore Cameroon's beautiful coastline with black and white sand beaches, wildlife centers, and vibrant port cities.",
     locations: [
       {
-        id: "limbe",
+        id: "Ngaoundere",
         name: "Capital: Ngaoundéré",
         image: "/limbe11.jpg",
         description:
@@ -33,7 +33,7 @@ const destinations = [
       "Discover the mountainous region of Cameroon with its cool climate, tea plantations, and rich cultural heritage.",
     locations: [
       {
-        id: "buea",
+        id: "yaounde",
         name: "Capital: Yaoundé",
         image: "/buea1.jpg",
         description:
@@ -50,7 +50,7 @@ const destinations = [
       "Experience the vast savannas of northern Cameroon, home to diverse wildlife and traditional cultures.",
     locations: [
       {
-        id: "waza-national-park",
+        id: "bertoua",
         name: "Capital: Bertoua",
         image: "/waza1.webp",
         description:
@@ -62,12 +62,12 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "Far North (Extrême-Nord)",
-    image: "/rainforest1.jpg",
+    image: "/limbe4.jpg",
     description:
       "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
     locations: [
       {
-        id: "korup-national-park",
+        id: "maroua",
         name: "Capital: Maroua",
         image: "/korup1.jpg",
         description:
@@ -79,14 +79,14 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "Littoral (Littoral)",
-    image: "/rainforest1.jpg",
+    image: "/bertoua4.jpg",
     description:
       "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
     locations: [
       {
-        id: "korup-national-park",
+        id: "douala",
         name: "Capital: Douala",
-        image: "/korup1.jpg",
+        image: "/limbe5.jpg",
         description:
           "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
       },
