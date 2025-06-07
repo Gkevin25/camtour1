@@ -10,76 +10,652 @@ import TourCard from "@/components/tour-card"
 
 // This would normally come from a database or API
 const getDestinationData = (slug: string) => {
-  // Sample data for Limbe
-  if (slug === "limbe") {
+  // Sample data for Ngaoundere
+  if (slug === "Ngaoundere") {
     return {
-      name: "Adamawa (Adamaoua)",
+      name: " Ngaoundéré",
       region: "Coastal Region",
-      image: "/limbe-city1.jpg",
+      image: "/ngaoundere1.jpg",
       description:
-        "Limbe is a coastal city in the Southwest Region of Cameroon, known for its black sand beaches, botanical garden, and wildlife center. Situated at the foot of Mount Cameroon, it offers a unique blend of natural beauty, wildlife conservation, and cultural experiences.",
+        "Ngaoundéré is a city in the Adamawa Region of Cameroon, known for its rolling hills, Fulani culture, and gateway status to the northern savannahs. Nestled at the foot of the Adamawa Plateau, it's a peaceful blend of traditional heritage and natural scenery.",
       highlights: [
-        "Black Sand Beaches",
-        "Limbe Wildlife Centre",
-        "Limbe Botanical Garden",
-        "Mount Cameroon Views",
-        "Fresh Seafood",
+      "Lamido's Palace",
+    "Vina Waterfalls",
+    "Mount Ngaoundéré",
+    "Traditional Fulani Architecture",
+    "Local Markets"
       ],
       history:
-        "Originally named Victoria, Limbe was founded in 1858 by British missionaries. It was renamed Limbe in 1982 and has a rich history influenced by German and British colonial periods. The city has grown from a small fishing village to an important port and tourism destination.",
+        "Ngaoundéré has been a key center for the Fulani people for centuries, with the Lamido's Palace standing as a symbol of traditional authority. The city became more prominent during colonial times due to its strategic location and remains an important administrative and transport hub.",
       activities: [
-        {
-          name: "Visit the Limbe Wildlife Centre",
-          description:
-            "Home to rescued primates including gorillas, chimpanzees, and drills, as well as other wildlife. The center focuses on conservation and rehabilitation.",
-          image: "/limbecity2.jpg",
-        },
-        {
-          name: "Relax on Down Beach",
-          description:
-            "Experience the unique black sand beaches formed from volcanic deposits. Enjoy swimming, sunbathing, and fresh seafood at beachside restaurants.",
-          image: "/limbe3.jpg",
-        },
-        {
-          name: "Explore the Limbe Botanical Garden",
-          description:
-            "Established in 1892, these gardens feature diverse plant species, walking paths, and a stunning view of the Atlantic Ocean.",
-          image: "/limbe4.jpg",
-        },
-        {
-          name: "Visit the Limbe Regional Museum",
-          description:
-            "Learn about the cultural heritage and history of the Southwest Region through artifacts and exhibitions.",
-          image: "/limbe5.jpg",
-        },
-      ],
+  {
+    name: "Visit the Lamido's Palace",
+    description:
+      "Explore the historical residence of the Lamido (traditional ruler) of Ngaoundéré, which showcases Fulani royal architecture and local customs.",
+    image: "/ngaoundere2.jpg",
+  },
+  {
+    name: "Hike Mount Ngaoundéré",
+    description:
+      "Climb this dormant volcanic hill for panoramic views of the surrounding savannah and grasslands. Ideal for light hiking and nature photography.",
+    image: "/ngaoundere4.jpg",
+  },
+  {
+    name: "Discover the Vina Waterfalls",
+    description:
+      "Located just outside the city, these falls are a refreshing natural attraction where locals often gather for picnics and relaxation.",
+    image: "/ngaoundere1.jpg",
+  },
+  {
+    name: "Stroll through Ngaoundéré Central Market",
+    description:
+      "Immerse yourself in local life and discover spices, fabrics, crafts, and fresh produce in this bustling and colorful market.",
+    image: "/ngaoundere5.jpg",
+  }
+],
       tours: [
         {
           id: 2,
-          title: "Limbe Wildlife Centre & Black Sand Beaches Day Trip",
+          title:  "Fulani Traditions & Nature Trail Experience",
           image: "/limbe6.jpg",
           price: 45000,
           duration: "1 day",
           rating: 4.7,
           reviews: 98,
-          location: "Limbe",
+          location: "Ngaoundéré",
           description:
-            "Discover Limbe's famous wildlife center and relax on unique black sand beaches. Includes hotel pickup and lunch.",
+            "Dive into the heart of Fulani traditions and explore the natural beauty surrounding Ngaoundéré. This immersive tour combines culture, food, and scenic exploration.",
           highlights: [
-            "Visit the Limbe Wildlife Centre and see rescued primates",
-            "Relax on the volcanic black sand beaches",
-            "Enjoy a traditional Cameroonian lunch",
-            "Learn about local conservation efforts",
+            "Visit a traditional Fulani settlement and interact with locals",
+      "Enjoy a horseback ride through the grasslands",
+      "Taste authentic Fulani dishes prepared by local chefs",
+      "Walk through forest paths to hidden natural springs",
+          ],
+        },
+        {
+          id: 3,
+          title: "Ngaoundéré Cultural Discovery Tour",
+          image: "/ngaoundere2.jpg",
+          price: 30000,
+          duration: "3 day",
+          rating: 4.7,
+          reviews: 98,
+          location: "Ngaoundéré",
+          description:
+            "Uncover the cultural treasures of Ngaoundéré, from royal palaces to scenic nature spots. Includes guided tours and traditional lunch.",
+          highlights: [
+            "Guided visit of the Lamido's Palace",
+      "Scenic hike up Mount Ngaoundéré",
+      "Discover Vina Waterfalls",
+      "Experience Fulani hospitality and cuisine",
           ],
         },
         
       ],
       weather:
-        "Limbe has a tropical monsoon climate with a distinct wet season from June to October and a drier season from November to May. Average temperatures range from 23°C to 32°C (73°F to 90°F) throughout the year.",
+        "Ngaoundéré enjoys a tropical savannah climate with a rainy season from April to October and a dry season from November to March. Average temperatures range from 18°C to 30°C (64°F to 86°F), with cooler evenings due to elevation.",
       gettingThere:
-        "Limbe is approximately 70 km from Douala, Cameroon's largest city. You can reach Limbe by taxi or bus from Douala in about 1-2 hours, depending on traffic. The nearest international airport is Douala International Airport.",
+        "Ngaoundéré is accessible by road, rail, and air. It’s about 820 km from Yaoundé and 1,020 km from Douala. The city is served by Ngaoundéré Airport and the Yaoundé-Ngaoundéré railway line, offering overnight trains and regional flights.",
     }
   }
+    if (slug === "yaounde") {
+    return {
+      name: " Yaounde",
+      region: "Center Region",
+      image: "/yaounde2.jpg",
+      description:
+        "Yaoundé is the capital city of Cameroon, built across seven hills and rich with political, cultural, and historical significance. It offers a unique mix of colonial architecture, bustling markets, green parks, and vibrant city life.",
+      highlights: [
+      "National Museum of Cameroon",
+  "Mvog-Betsi Zoo",
+  "Reunification Monument",
+  "Benedictine Monastery of Mont Fébé",
+  "Marché Central"
+      ],
+      history:
+        "Founded in the late 19th century by German explorers, Yaoundé became the capital of French-administered Cameroon in 1922. It played a key role during the independence movement and has since evolved into the country's administrative and diplomatic hub.",
+      activities: [
+  {
+    name: "Explore the National Museum",
+    description:
+      "Housed in the former presidential palace, this museum showcases Cameroon's history, cultural artifacts, and traditional crafts from various ethnic groups.",
+    image: "/yaounde1.jpg",
+  },
+  {
+    name: "Relax at Mont Fébé",
+    description:
+      "A peaceful escape with scenic views, the Mont Fébé area includes a monastery, forested walking trails, and panoramic spots overlooking the city.",
+    image: "/yaounde2.jpg",
+  },
+  {
+    name: "Visit Mvog-Betsi Zoo",
+    description:
+      "Home to a variety of native species including lions, chimpanzees, and antelopes, the zoo also focuses on conservation education.",
+    image: "/yaounde3.jpg",
+  },
+  {
+    name: "Shop at Marché Central",
+    description:
+      "One of the largest and busiest markets in Yaoundé. Find everything from textiles and crafts to electronics and Cameroonian street food.",
+    image: "/yaounde4.jpg",
+  }
+],
+      tours: [
+  {
+    id: 5,
+    title: "Yaoundé City Highlights & Cultural Tour",
+    image: "/yaounde5.jpg",
+    price: 40000,
+    duration: "1 day",
+    rating: 4.6,
+    reviews: 81,
+    location: "Yaoundé",
+    description:
+      "Discover Yaoundé's most iconic landmarks, learn about its history, and immerse yourself in local culture with guided visits and tastings.",
+    highlights: [
+      "Guided tour of the National Museum",
+      "Photo stop at the Reunification Monument",
+      "Cultural walk through Marché Central",
+      "Scenic views from Mont Fébé"
+    ],
+  },
+  {
+    id: 6,
+    title: "Nature Escape: Mont Fébé & Monastery Walk",
+    image: "/yaounde7.jpg",
+    price: 35000,
+    duration: "Half-day",
+    rating: 4.4,
+    reviews: 59,
+    location: "Yaoundé",
+    description:
+      "Take a relaxing walk through the peaceful Mont Fébé hills, visit the Benedictine Monastery, and enjoy stunning views over the capital city.",
+    highlights: [
+      "Walk shaded trails around Mont Fébé",
+      "Visit the serene Benedictine Monastery",
+      "Enjoy panoramic views of Yaoundé",
+      "Optional tea break at a hilltop café"
+    ],
+  },
+  {
+    id: 7,
+    title: "Market & Street Food Adventure",
+    image: "/yaounde8.jpg",
+    price: 30000,
+    duration: "1 day",
+    rating: 4.7,
+    reviews: 92,
+    location: "Yaoundé",
+    description:
+      "Join a local guide for an exciting culinary tour of Yaoundé. Visit markets, taste traditional dishes, and learn about Cameroonian cooking culture.",
+    highlights: [
+      "Explore Marché Central and local markets",
+      "Taste popular street foods like soya, beignets, and puff-puff",
+      "Visit a local spice stall",
+      "Learn food customs and local etiquette"
+    ],
+  },
+  {
+    id: 8,
+    title: "Family Fun at Mvog-Betsi Zoo & Botanical Garden",
+    image: "/yaounde9.jpg",
+    price: 32000,
+    duration: "Half-day",
+    rating: 4.3,
+    reviews: 68,
+    location: "Yaoundé",
+    description:
+      "A great experience for families or wildlife lovers—explore Yaoundé’s zoo and botanical gardens while learning about native species and conservation.",
+    highlights: [
+      "See lions, monkeys, reptiles, and birds",
+      "Walk the botanical garden trails",
+      "Interactive learning for children",
+      "Optional picnic with local snacks"
+    ],
+  }
+],
+      weather:
+        "Yaoundé has a tropical wet and dry climate, with two rainy seasons from March to June and September to November. Temperatures range from 19°C to 30°C (66°F to 86°F) with consistent humidity throughout the year.",
+      gettingThere:
+        "Yaoundé is accessible via Yaoundé Nsimalen International Airport, which receives both domestic and international flights. The city is also connected by major roads and railways to Douala, Ngaoundéré, and other parts of the country.",
+    }
+  }
+if (slug === "yaounde") {
+  return {
+    name: "Yaoundé",
+    region: "Center Region",
+    image: "/yaounde2.jpg",
+    description:
+      "Yaoundé is the capital city of Cameroon, built across seven hills and rich with political, cultural, and historical significance. It offers a unique mix of colonial architecture, bustling markets, green parks, and vibrant city life.",
+    highlights: [
+      "National Museum of Cameroon",
+      "Mvog-Betsi Zoo",
+      "Reunification Monument",
+      "Benedictine Monastery of Mont Fébé",
+      "Marché Central"
+    ],
+    history:
+      "Founded in the late 19th century by German explorers, Yaoundé became the capital of French-administered Cameroon in 1922. It played a key role during the independence movement and has since evolved into the country's administrative and diplomatic hub.",
+    activities: [
+      {
+        name: "Explore the National Museum",
+        description:
+          "Housed in the former presidential palace, this museum showcases Cameroon's history, cultural artifacts, and traditional crafts from various ethnic groups.",
+        image: "/yaounde1.jpg",
+      },
+      {
+        name: "Relax at Mont Fébé",
+        description:
+          "A peaceful escape with scenic views, the Mont Fébé area includes a monastery, forested walking trails, and panoramic spots overlooking the city.",
+        image: "/yaounde2.jpg",
+      },
+      {
+        name: "Visit Mvog-Betsi Zoo",
+        description:
+          "Home to a variety of native species including lions, chimpanzees, and antelopes, the zoo also focuses on conservation education.",
+        image: "/yaounde3.jpg",
+      },
+      {
+        name: "Shop at Marché Central",
+        description:
+          "One of the largest and busiest markets in Yaoundé. Find everything from textiles and crafts to electronics and Cameroonian street food.",
+        image: "/yaounde4.jpg",
+      }
+    ],
+    tours: [
+      {
+        id: 5,
+        title: "Yaoundé City Highlights & Cultural Tour",
+        image: "/yaounde5.jpg",
+        price: 40000,
+        duration: "1 day",
+        rating: 4.6,
+        reviews: 81,
+        location: "Yaoundé",
+        description:
+          "Discover Yaoundé's most iconic landmarks, learn about its history, and immerse yourself in local culture with guided visits and tastings.",
+        highlights: [
+          "Guided tour of the National Museum",
+          "Photo stop at the Reunification Monument",
+          "Cultural walk through Marché Central",
+          "Scenic views from Mont Fébé"
+        ],
+      },
+      {
+        id: 6,
+        title: "Nature Escape: Mont Fébé & Monastery Walk",
+        image: "/yaounde7.jpg",
+        price: 35000,
+        duration: "Half-day",
+        rating: 4.4,
+        reviews: 59,
+        location: "Yaoundé",
+        description:
+          "Take a relaxing walk through the peaceful Mont Fébé hills, visit the Benedictine Monastery, and enjoy stunning views over the capital city.",
+        highlights: [
+          "Walk shaded trails around Mont Fébé",
+          "Visit the serene Benedictine Monastery",
+          "Enjoy panoramic views of Yaoundé",
+          "Optional tea break at a hilltop café"
+        ],
+      },
+      {
+        id: 7,
+        title: "Market & Street Food Adventure",
+        image: "/yaounde8.jpg",
+        price: 30000,
+        duration: "1 day",
+        rating: 4.7,
+        reviews: 92,
+        location: "Yaoundé",
+        description:
+          "Join a local guide for an exciting culinary tour of Yaoundé. Visit markets, taste traditional dishes, and learn about Cameroonian cooking culture.",
+        highlights: [
+          "Explore Marché Central and local markets",
+          "Taste popular street foods like soya, beignets, and puff-puff",
+          "Visit a local spice stall",
+          "Learn food customs and local etiquette"
+        ],
+      },
+      {
+        id: 8,
+        title: "Family Fun at Mvog-Betsi Zoo & Botanical Garden",
+        image: "/yaounde9.jpg",
+        price: 32000,
+        duration: "Half-day",
+        rating: 4.3,
+        reviews: 68,
+        location: "Yaoundé",
+        description:
+          "A great experience for families or wildlife lovers—explore Yaoundé’s zoo and botanical gardens while learning about native species and conservation.",
+        highlights: [
+          "See lions, monkeys, reptiles, and birds",
+          "Walk the botanical garden trails",
+          "Interactive learning for children",
+          "Optional picnic with local snacks"
+        ],
+      }
+    ],
+    weather:
+      "Yaoundé has a tropical wet and dry climate, with two rainy seasons from March to June and September to November. Temperatures range from 19°C to 30°C (66°F to 86°F) with consistent humidity throughout the year.",
+    gettingThere:
+      "Yaoundé is accessible via Yaoundé Nsimalen International Airport, which receives both domestic and international flights. The city is also connected by major roads and railways to Douala, Ngaoundéré, and other parts of the country.",
+  }
+}
+if (slug === "bertoua") {
+  return {
+    name: "Bertoua",
+    region: "East Region",
+    image: "/bertoua1.jpg",
+    description:
+      "Bertoua is the capital of the East Region of Cameroon, known for its tranquil ambiance, rich forest landscapes, and its proximity to the country's vast eastern rainforest reserves. It serves as a hub for eco-tourism and cultural encounters with indigenous communities.",
+    highlights: [
+      "Lobéké National Park (access point)",
+      "Ethnographic Museum of Bertoua",
+      "Sacred Heart Cathedral",
+      "Local artisan markets",
+      "Nearby pygmy communities"
+    ],
+    history:
+      "Bertoua developed as a colonial administrative center during the German and later French periods. Its growth expanded due to forestry and regional governance, and it is now recognized as a key gateway to Cameroon's eastern wilderness and indigenous cultures.",
+    activities: [
+      {
+        name: "Visit the Ethnographic Museum",
+        description:
+          "Discover the traditions, attire, tools, and customs of the various ethnic groups in the East Region, including the Baka and Kaka peoples.",
+        image: "/bertoua2.jpg",
+      },
+      {
+        name: "Explore Local Markets",
+        description:
+          "Wander through Bertoua’s artisan markets where you’ll find hand-carved crafts, local textiles, and traditional foods unique to the East.",
+        image: "/bertoua3.jpg",
+      },
+      {
+        name: "Take a Cultural Tour to a Pygmy Village",
+        description:
+          "Engage with Baka pygmy communities in the nearby forest areas. Learn about their music, hunting traditions, and forest knowledge.",
+        image: "/bertoua4.jpg",
+      },
+      {
+        name: "Relax at the Sacred Heart Cathedral",
+        description:
+          "A peaceful and historic Catholic cathedral at the heart of Bertoua, known for its architecture and role in local community life.",
+        image: "/bertoua5.jpg",
+      }
+    ],
+    tours: [
+      {
+        id: 9,
+        title: "Bertoua Heritage & Culture Tour",
+        image: "/bertoua6.jpg",
+        price: 37000,
+        duration: "1 day",
+        rating: 4.5,
+        reviews: 45,
+        location: "Bertoua",
+        description:
+          "Explore Bertoua's local history, museum, and markets with a knowledgeable guide. Includes artisan visits and cultural storytelling.",
+        highlights: [
+          "Visit to the Ethnographic Museum",
+          "Shopping at local craft markets",
+          "Cultural dance demonstration",
+          "Meet local artisans"
+        ],
+      },
+      {
+        id: 10,
+        title: "Eco & Forest Discovery: Pygmy Community Tour",
+        image: "/bertoua7.avif",
+        price: 42000,
+        duration: "Full day",
+        rating: 4.7,
+        reviews: 38,
+        location: "Bertoua",
+        description:
+          "Experience life in a traditional pygmy village, guided by local interpreters. Learn forest survival techniques and traditional music.",
+        highlights: [
+          "Transport to Baka community forest zone",
+          "Introduction to forest-based lifestyle",
+          "Interactive music and storytelling session",
+          "Optional nature hike"
+        ],
+      },
+      {
+        id: 11,
+        title: "Spiritual & Historical Landmarks of Bertoua",
+        image: "/bertoua8.avif",
+        price: 28000,
+        duration: "Half-day",
+        rating: 4.3,
+        reviews: 29,
+        location: "Bertoua",
+        description:
+          "A guided walk through Bertoua’s religious and colonial landmarks, including the Sacred Heart Cathedral and old administrative buildings.",
+        highlights: [
+          "Visit Sacred Heart Cathedral",
+          "Learn about colonial heritage sites",
+          "Quiet time for reflection or photography",
+          "Optional stop at a local café"
+        ],
+      }
+    ],
+    weather:
+      "Bertoua has a humid tropical climate with significant rainfall, especially from March to November. Temperatures range between 20°C and 32°C (68°F to 90°F), with lush greenery throughout most of the year.",
+    gettingThere:
+      "Bertoua is accessible by road from Yaoundé (approx. 350 km) and Douala. The city has a regional airport mainly serving domestic flights and charter planes. Buses and private taxis also operate routes to Bertoua from major cities.",
+  }
+}
+if (slug === "maroua") {
+  return {
+    name: "Maroua",
+    region: "Far North Region",
+    image: "/maroua1.webp",
+    description:
+      "Maroua is the capital of Cameroon's Far North Region, a vibrant Sahelian city known for its colorful markets, traditional architecture, and proximity to natural and cultural attractions like the Mandara Mountains and Waza National Park.",
+    highlights: [
+      "Maroua Grand Market",
+      "Traditional lamido palace (palais du lamido)",
+      "Mandara Mountains (nearby)",
+      "Crafts and leather workshops",
+      "Waza National Park (gateway)"
+    ],
+    history:
+      "Historically a center of Fulani and Islamic influence, Maroua developed as a regional trade and cultural hub. The city maintains its traditional heritage through its architecture, royal structures, and artisan industries.",
+    activities: [
+      {
+        name: "Stroll Through Maroua Grand Market",
+        description:
+          "A bustling center of trade, the market is famous for textiles, spices, leather goods, and locally made handicrafts. A must-visit for cultural immersion.",
+        image: "/maroua2.jpg",
+      },
+      {
+        name: "Visit the Lamido’s Palace",
+        description:
+          "Step into the traditional palace of the local ruler, where you can witness Sahelian architecture and learn about the Fulani leadership traditions.",
+        image: "/maroua3.jpg",
+      },
+      {
+        name: "Explore Craft Workshops",
+        description:
+          "Maroua is well known for its leatherwork, pottery, and weaving. Visit local workshops and see artisans at work.",
+        image: "/maroua4.webp",
+      },
+      {
+        name: "Day Trip to Waza National Park",
+        description:
+          "Take a guided trip to one of Cameroon’s most famous parks. Spot elephants, giraffes, antelopes, and more in this semi-arid savannah reserve.",
+        image: "/maroua5.avif",
+      }
+    ],
+    tours: [
+      {
+        id: 12,
+        title: "Maroua City & Culture Tour",
+        image: "/maroua6.avif",
+        price: 30000,
+        duration: "1 day",
+        rating: 4.5,
+        reviews: 52,
+        location: "Maroua",
+        description:
+          "Dive into the history and lifestyle of Maroua with visits to the lamido's palace, artisan centers, and the lively central market.",
+        highlights: [
+          "Guided tour of the lamido’s palace",
+          "Explore the Grand Market",
+          "Visit leather and textile workshops",
+          "Try traditional Far North cuisine"
+        ],
+      },
+      {
+        id: 13,
+        title: "Safari Adventure: Waza National Park",
+        image: "/maroua7.webp",
+        price: 45000,
+        duration: "Full day",
+        rating: 4.8,
+        reviews: 64,
+        location: "Waza (via Maroua)",
+        description:
+          "Set off early for a wildlife-packed day exploring Waza National Park with an expert guide. Includes transport and picnic lunch.",
+        highlights: [
+          "Safari drive through Waza",
+          "Spot elephants, giraffes, lions, and birds",
+          "Stop at park viewpoints",
+          "Optional local lunch en route"
+        ],
+      },
+      {
+        id: 14,
+        title: "Mandara Mountains Hiking Experience",
+        image: "/maroua8.webp",
+        price: 38000,
+        duration: "Full day",
+        rating: 4.6,
+        reviews: 41,
+        location: "Near Maroua",
+        description:
+          "Take a guided hike in the Mandara Mountains, visit Kapsiki villages, and enjoy breathtaking views of the volcanic landscapes.",
+        highlights: [
+          "Guided hike in Mandara Mountains",
+          "Cultural visit to a local village",
+          "Panoramic viewpoints",
+          "Learn about ancient rock dwellings"
+        ],
+      }
+    ],
+    weather:
+      "Maroua has a semi-arid climate with a long dry season from October to May and a short rainy season from June to September. Temperatures often range from 22°C to 40°C (72°F to 104°F), with hot, dry winds common.",
+    gettingThere:
+      "Maroua is accessible via Maroua Salak Airport, offering limited domestic flights. The city can also be reached by bus or car from Garoua and Ngaoundéré. Local moto-taxis and minibuses are the main forms of transportation within the city.",
+  }
+}
+if (slug === "douala") {
+  return {
+    name: "Douala",
+    region: "Littoral Region",
+    image: "/douala1.jpg",
+    description:
+      "Douala is the economic capital and largest city of Cameroon, bustling with energy, commerce, and cultural diversity. Located along the Atlantic coast, it is known for its lively ports, modern infrastructure, and vibrant nightlife.",
+    highlights: [
+      "Douala Maritime Museum",
+      "La Nouvelle Liberté Monument",
+      "Marché Central & Akwa District",
+      "Ekom Nkam Waterfalls (nearby)",
+      "Doual’art Contemporary Art Center"
+    ],
+    history:
+      "Founded as a small fishing village by the Duala people, Douala grew rapidly during German and French colonial periods due to its strategic coastal location. It remains Cameroon’s main economic engine and hosts the country’s largest seaport and airport.",
+    activities: [
+      {
+        name: "Visit the Maritime Museum",
+        description:
+          "A fascinating museum showcasing the maritime history of Cameroon, from colonial trade to modern shipping. Located near the port area.",
+        image: "/douala2.webp",
+      },
+      {
+        name: "Walk Through the Akwa District",
+        description:
+          "The heart of Douala's business and nightlife scene, Akwa is full of shops, restaurants, bars, and historic buildings from the colonial era.",
+        image: "/douala3.jpg",
+      },
+      {
+        name: "See the La Nouvelle Liberté Monument",
+        description:
+          "An iconic recycled metal sculpture symbolizing freedom and resilience, located at one of Douala’s busiest roundabouts.",
+        image: "/douala4.webp",
+      },
+      {
+        name: "Take a Day Trip to Ekom Nkam Falls",
+        description:
+          "One of Cameroon's most impressive waterfalls, located a few hours from Douala, surrounded by tropical forest and featured in Tarzan films.",
+        image: "/douala5.webp",
+      }
+    ],
+    tours: [
+      {
+        id: 15,
+        title: "Douala City Discovery Tour",
+        image: "/douala6.webp",
+        price: 40000,
+        duration: "1 day",
+        rating: 4.4,
+        reviews: 73,
+        location: "Douala",
+        description:
+          "Explore the highlights of Douala including the historic districts, monuments, and markets. Includes local tastings and a guide.",
+        highlights: [
+          "Visit to La Nouvelle Liberté",
+          "Explore Akwa and Bonanjo neighborhoods",
+          "Stop at the Maritime Museum",
+          "Sample local street food"
+        ],
+      },
+      {
+        id: 16,
+        title: "Art & Culture Walk in Douala",
+        image: "/douala7.jpg",
+        price: 35000,
+        duration: "Half-day",
+        rating: 4.5,
+        reviews: 56,
+        location: "Douala",
+        description:
+          "A guided art walk through Doual’art, murals, and hidden galleries showcasing the city’s creative and cultural vibrance.",
+        highlights: [
+          "Tour Doual’art contemporary gallery",
+          "Discover public art installations",
+          "Visit local studios and creative spaces",
+          "Optional coffee stop with artists"
+        ],
+      },
+      {
+        id: 17,
+        title: "Nature Getaway: Ekom Nkam Waterfalls Tour",
+        image: "/douala8.jpg",
+        price: 48000,
+        duration: "Full day",
+        rating: 4.8,
+        reviews: 61,
+        location: "Ekom Nkam (from Douala)",
+        description:
+          "Escape the city and head into nature with a scenic trip to Ekom Nkam Falls. Enjoy hiking, photography, and rainforest air.",
+        highlights: [
+          "Transport to Ekom Nkam Falls",
+          "Forest trail walk",
+          "Viewpoint photography stops",
+          "Optional picnic at the falls"
+        ],
+      }
+    ],
+    weather:
+      "Douala has a tropical monsoon climate with heavy rainfall from June to October and drier months from December to February. Temperatures range from 24°C to 32°C (75°F to 90°F), with high humidity year-round.",
+    gettingThere:
+      "Douala is served by Douala International Airport with flights to major African and European cities. The city is well connected by road and sea, and serves as the starting point for many trips to western Cameroon and the coast.",
+  }
+}
+
+
 
   // Default data for other destinations
   return {
@@ -108,6 +684,7 @@ const getDestinationData = (slug: string) => {
     gettingThere: "Transportation information coming soon.",
   }
 }
+
 
 export default function DestinationDetailPage({ params }: { params: { slug: string } }) {
   const destination = getDestinationData(params.slug)
