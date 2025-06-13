@@ -168,25 +168,31 @@ export default function AboutPage() {
               {
                 name: "John Paul",
                 role: "Founder & CEO",
-                bio: "Former park ranger with 15+ years of experience in Cameroon's tourism industry.",
+                bio: "Current student at the ICT university bachelor in SEN with years of experience in Cameroon's tourism industry.",
                 image: "/placeholder.svg?height=400&width=400",
               },
               {
                 name: "Gnowa Kevin",
                 role: "Operations Director",
-                bio: "Tourism management expert ensuring smooth experiences for all our guests.",
+                bio: "Current student at the ICT university bachelor in Cybersecurity ensuring smooth experiences for all our guests.",
                 image: "/placeholder.svg?height=400&width=400",
               },
               {
-                name: "Fakam Fakam",
+                name: "Fakam Fankam",
                 role: "Head Guide",
-                bio: "Certified mountain guide with extensive knowledge of Cameroon's landscapes.",
+                bio: "Current student at the ICT university bachelor in SEN with extensive knowledge of Cameroon's landscapes.",
                 image: "/placeholder.svg?height=400&width=400",
               },
               {
                 name: "Ayuk Etang",
                 role: "Cultural Experience Manager",
-                bio: "Anthropologist dedicated to authentic cultural exchange and community partnerships.",
+                bio: "Current student at the ICT university bachelor in SEN dedicated to authentic cultural exchange and community partnerships.",
+                image: "/placeholder.svg?height=400&width=400",
+              },
+       {
+                name: "Asobo Khan",
+                role: "Cultural Experience Manager",
+                bio: "Current student at the ICT university bachelor in SEN wuth experience in respectable accomodation.",
                 image: "/placeholder.svg?height=400&width=400",
               },
             ].map((member, index) => (
