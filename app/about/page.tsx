@@ -288,3 +288,29 @@ export default function AboutPage() {
     </div>
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+The provided code defines a React component for an "About" page in a Next.js application, which is structured to present information about a travel company called CamTour. The code begins with several import statements that bring in necessary components and libraries. The `Image` component from Next.js is used for optimized image loading, while the `Link` component facilitates client-side navigation. The `Button`, `Card`, and `CardContent` components are imported from a UI library, likely for consistent styling across the application. Additionally, `MainNav` and `Footer` components are imported to provide navigation and footer functionality on the page.
+
+The `AboutPage` function is defined as the default export of the module. Inside this function, the return statement contains JSX that structures the layout of the page. The outermost `div` uses flexbox to create a column layout that spans the full height of the screen. The header section is sticky, ensuring it remains at the top during scrolling, and includes a logo linked to the home page, navigation links, and a placeholder for additional elements.
+
+The main content area is divided into several sections. The first section is a hero section featuring a background image with a dark overlay, a title, and a brief description of CamTour. Following this, the "Our Story" section provides a narrative about the company's founding, mission, and growth, accompanied by an image representing the team. The "Our Values" section highlights the company's core principles, such as authenticity, sustainability, and community impact, using cards to present each value with an associated icon.
+
+The "Meet Our Team" section introduces key team members, showcasing their roles and bios, along with their images. The "Testimonials" section features a client review, emphasizing the positive experiences of past customers. The "Our Partners" section lists organizations that collaborate with CamTour to promote sustainable tourism. Finally, a call-to-action (CTA) section encourages visitors to explore Cameroon, offering buttons for browsing tours and contacting the company.
+
+The layout is responsive, utilizing CSS utility classes for styling, ensuring a visually appealing and user-friendly experience across different devices. The page concludes with a footer component that likely contains additional links or information. Overall, this code effectively creates an engaging and informative About page for the CamTour website, highlighting the company's mission, values, team, and offerings.*/
