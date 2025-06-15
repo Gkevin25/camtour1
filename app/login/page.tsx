@@ -77,4 +77,4 @@ export default function LoginPage() {
 
 10. **Closing Tags**: The component structure is closed properly, ensuring that all elements are nested correctly.
 
-Overall, this code defines a structured and styled login page that provides users with a clear interface for signing in to their accounts, while also offering a link to create a new account if they do not have one.*\
+Overall, this code defines a structured and styled login page that provides users with a clear interface for signing in to their accounts, while also offering a link to create a new account if they do not have one.*/
