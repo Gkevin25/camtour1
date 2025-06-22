@@ -654,6 +654,544 @@ if (slug === "douala") {
       "Douala is served by Douala International Airport with flights to major African and European cities. The city is well connected by road and sea, and serves as the starting point for many trips to western Cameroon and the coast.",
   }
 }
+if (slug === "garoua") {
+  return {
+    name: "Garoua",
+    region: "North Region",
+    image: "/maroua1.webp",
+    description:
+      "Garoua is the capital of Cameroon's North Region, a vibrant Sahelian city known for its colorful markets, traditional architecture, and proximity to natural and cultural attractions like the Mandara Mountains and Waza National Park.",
+    highlights: [
+      "Garoua Central market",
+      "Lamido’s Palace (palais du lamido)",
+      "Lagdo Dam",
+      "Benoue National Park (gateway)"
+    ],
+    history:
+      "Historically a center of Fulani and Islamic influence, Garoua developed as a regional trade and cultural hub. The city maintains its traditional heritage through its unique culture and artisan industries.",
+    activities: [
+      {
+        name: "Stroll Through Garoua Central Market",
+        description:
+          "A bustling center of trade, the market is famous for textiles, spices, leather goods, and locally made handicrafts. A must-visit for cultural immersion.",
+        image: "/maroua2.jpg",
+      },
+      {
+        name: "Lamido’s Palace",
+        description:
+          "Step into the traditional palace of the local ruler, where you can witness Sahelian architecture and learn about the Fulani leadership traditions.",
+        image: "/maroua3.jpg",
+      },
+      {
+        name: "Boat rides at Lagdo Dam",
+        description:
+          "Garoua is known for it's dam which accomodates boat rides and fishing.",
+        image: "/bigfall.jpeg",
+      },
+      {
+        name: "Day Trip to Benoue National Park",
+        description:
+          "Take a guided trip to one of Cameroon’s most famous parks. Spot elephants, giraffes, antelopes, and more in this semi-arid savannah reserve.",
+        image: "/maroua5.avif",
+      }
+    ],
+    tours: [
+      {
+        id: 12,
+        title: "Maroua City & Culture Tour",
+        image: "/maroua6.avif",
+        price: 30000,
+        duration: "1 day",
+        rating: 4.5,
+        reviews: 52,
+        location: "Maroua",
+        description:
+          "Dive into the history and lifestyle of Maroua with visits to the lamido's palace, artisan centers, and the lively central market.",
+        highlights: [
+          "Guided tour of the lamido’s palace",
+          "Explore the Grand Market",
+          "Visit leather and textile workshops",
+          "Try traditional Far North cuisine"
+        ],
+      },
+      {
+        id: 13,
+        title: "Safari Adventure: Waza National Park",
+        image: "/maroua7.webp",
+        price: 45000,
+        duration: "Full day",
+        rating: 4.8,
+        reviews: 64,
+        location: "Waza (via Maroua)",
+        description:
+          "Set off early for a wildlife-packed day exploring Waza National Park with an expert guide. Includes transport and picnic lunch.",
+        highlights: [
+          "Safari drive through Waza",
+          "Spot elephants, giraffes, lions, and birds",
+          "Stop at park viewpoints",
+          "Optional local lunch en route"
+        ],
+      },
+      {
+        id: 14,
+        title: "Mandara Mountains Hiking Experience",
+        image: "/maroua8.webp",
+        price: 38000,
+        duration: "Full day",
+        rating: 4.6,
+        reviews: 41,
+        location: "Near Maroua",
+        description:
+          "Take a guided hike in the Mandara Mountains, visit Kapsiki villages, and enjoy breathtaking views of the volcanic landscapes.",
+        highlights: [
+          "Guided hike in Mandara Mountains",
+          "Cultural visit to a local village",
+          "Panoramic viewpoints",
+          "Learn about ancient rock dwellings"
+        ],
+      }
+    ],
+    weather:
+      "There are isolated thunderstorms. Mostly cloudy, passing showers. Temperatures are about 107°F with humidity around 39%.",
+    gettingThere:
+      "Fly to an international airport in Yaounde or Douala, Cameroon. A bus or taxi can take you from there to Garoua, which will take about 12-15 hours by road. A domestic flight cn lso be taken to get here.",
+  }
+}
+if (slug === "Bamenda") {
+  return {
+    name: "Bamenda",
+    region: "NorthWest Region",
+    image: "/maroua1.webp",
+    description:
+      "A city marked by colonial rule and involvement in the political landscape of Cameroon. It has a unique and popular culture.",
+    highlights: [
+      "Mount Oku",
+      "Menchum Falls",
+      "Kilum-Ijim Forest",
+      "Mankon Museum"
+    ],
+    history:
+      "The region is marked by it's early settlements in the 1700s and later joint british and french administration in the realy 1900s.",
+    activities: [
+      {
+        name: "Mount Oku Hike",
+        description:
+          "Enjoy stunning views and diverse ecosystems.",
+        image: "/mount1.jpg",
+      },
+      {
+        name: "Menchum Falls",
+        description:
+          "Go sailing and sailing on the spectacular site.",
+        image: "/bigfall.jpeg",
+      },
+      {
+        name: "Kilum-Ijim Forest Exploration",
+        description:
+          "Enjoy site of mountain forest with a haven for diverse flora and fauna.",
+        image: "/Korup1.jpg",
+      },
+      {
+        name: "Mankon museum visit",
+        description:
+          "Take a guided trip to one of Cameroon’s most famous parks. Spot elephants, giraffes, antelopes, and more in this semi-arid savannah reserve.",
+        image: "/Mankon Museum.jpeg",
+      }
+    ],
+    tours: [
+      {
+        id: 12,
+        title: "Maroua City & Culture Tour",
+        image: "/maroua6.avif",
+        price: 30000,
+        duration: "1 day",
+        rating: 4.5,
+        reviews: 52,
+        location: "Maroua",
+        description:
+          "Dive into the history and lifestyle of Maroua with visits to the lamido's palace, artisan centers, and the lively central market.",
+        highlights: [
+          "Guided tour of the lamido’s palace",
+          "Explore the Grand Market",
+          "Visit leather and textile workshops",
+          "Try traditional Far North cuisine"
+        ],
+      },
+      {
+        id: 13,
+        title: "Safari Adventure: Waza National Park",
+        image: "/maroua7.webp",
+        price: 45000,
+        duration: "Full day",
+        rating: 4.8,
+        reviews: 64,
+        location: "Waza (via Maroua)",
+        description:
+          "Set off early for a wildlife-packed day exploring Waza National Park with an expert guide. Includes transport and picnic lunch.",
+        highlights: [
+          "Safari drive through Waza",
+          "Spot elephants, giraffes, lions, and birds",
+          "Stop at park viewpoints",
+          "Optional local lunch en route"
+        ],
+      },
+      {
+        id: 14,
+        title: "Mandara Mountains Hiking Experience",
+        image: "/maroua8.webp",
+        price: 38000,
+        duration: "Full day",
+        rating: 4.6,
+        reviews: 41,
+        location: "Near Maroua",
+        description:
+          "Take a guided hike in the Mandara Mountains, visit Kapsiki villages, and enjoy breathtaking views of the volcanic landscapes.",
+        highlights: [
+          "Guided hike in Mandara Mountains",
+          "Cultural visit to a local village",
+          "Panoramic viewpoints",
+          "Learn about ancient rock dwellings"
+        ],
+      }
+    ],
+    weather:
+      "The Northwest region records high and low temperatures, isolated storms. Temperatures are around 82 degree F and the humidity is about 64%.",
+    gettingThere:
+      "You have to fly into Douala or Yaounde airports, then travel to Bamenda which is the region's capital.",
+  }
+}
+if (slug === "Bafoussam") {
+  return {
+    name: "Bafoussam",
+    region: "West Region",
+    image: "/Ebolowa2.jpeg",
+    description:
+      "A fertile region in Cameroon characterized by diverse landscapes including mountains, lakes and waterfalls.",
+    highlights: [
+      "Bafoussam Grand Market",
+      "Chutes de la Metche",
+      "Bafoussam Museum"
+    ],
+    history:
+      "It was initially made up of several ethnic groups including the bamileke and bamum. This region joined Cameroon in the 1960s.",
+    activities: [
+      {
+        name: "Stroll Through Bafoussam Grand Market",
+        description:
+          "A bustling center of trade, the market is famous for textiles, spices, leather goods, and locally made handicrafts. A must-visit for cultural immersion.",
+        image: "/market.jpg",
+      },
+      {
+        name: "Chutes de la Metche adventure",
+        description:
+          "Go sailing and fishing in one of the most beatiful sites in the West.",
+        image: "/bigfall.jpeg",
+      },
+
+      {
+        name: "Bafoussam Museum visit",
+        description:
+          "Enjoy the beautiful work of art and culture in Bafoussam.",
+        image: "/Mankon Museum.jpeg",
+      }
+    ],
+    tours: [
+      {
+        id: 12,
+        title: "Maroua City & Culture Tour",
+        image: "/maroua6.avif",
+        price: 30000,
+        duration: "1 day",
+        rating: 4.5,
+        reviews: 52,
+        location: "Maroua",
+        description:
+          "Dive into the history and lifestyle of Maroua with visits to the lamido's palace, artisan centers, and the lively central market.",
+        highlights: [
+          "Guided tour of the lamido’s palace",
+          "Explore the Grand Market",
+          "Visit leather and textile workshops",
+          "Try traditional Far North cuisine"
+        ],
+      },
+      {
+        id: 13,
+        title: "Safari Adventure: Waza National Park",
+        image: "/maroua7.webp",
+        price: 45000,
+        duration: "Full day",
+        rating: 4.8,
+        reviews: 64,
+        location: "Waza (via Maroua)",
+        description:
+          "Set off early for a wildlife-packed day exploring Waza National Park with an expert guide. Includes transport and picnic lunch.",
+        highlights: [
+          "Safari drive through Waza",
+          "Spot elephants, giraffes, lions, and birds",
+          "Stop at park viewpoints",
+          "Optional local lunch en route"
+        ],
+      },
+      {
+        id: 14,
+        title: "Mandara Mountains Hiking Experience",
+        image: "/maroua8.webp",
+        price: 38000,
+        duration: "Full day",
+        rating: 4.6,
+        reviews: 41,
+        location: "Near Maroua",
+        description:
+          "Take a guided hike in the Mandara Mountains, visit Kapsiki villages, and enjoy breathtaking views of the volcanic landscapes.",
+        highlights: [
+          "Guided hike in Mandara Mountains",
+          "Cultural visit to a local village",
+          "Panoramic viewpoints",
+          "Learn about ancient rock dwellings"
+        ],
+      }
+    ],
+    weather:
+      "This region records high and low temperatures, a few storms. Temperatures are around 80 degree F with Humidity of around 72%.",
+    gettingThere:
+      "Fly to Douala or Yaounde international airports in the country, then from there travel to the West region by road using train or bus.",
+  }
+}
+if (slug === "Ebolowa") {
+  return {
+    name: "Ebolowa",
+    region: "South Region",
+    image: "/dja1.jpg",
+    description:
+      "A region surrounded by central African countries. It has Ethni groups like Bulu, Fang and Ewondo.",
+    highlights: [
+      "Ebolowa Grand Market",
+      "Dja Faunal Reserve",
+      "Kribi Waterfalls",
+      "Londji village"
+    ],
+    history:
+      "Known for it's early human populations like pygmies. It had some political development shifts and fully became a region in 2008.",
+    activities: [
+      {
+        name: "Stroll Through Ebolowa Grand Market",
+        description:
+          "A bustling center of trade, the market is famous for textiles, spices, leather goods, and locally made handicrafts. A must-visit for cultural immersion.",
+        image: "/market.jpg",
+      },
+      {
+        name: "Dja Faunal Reserve adventure",
+        description:
+          "Go on adventure to see variety of wildlife including gorillas and elephants.",
+        image: "/dja1.jpg",
+      },
+      {
+        name: "Explore Kribi Waterfalls",
+        description:
+          "Go on boat tours and experience beautiful beaches near the atlantic ocean.",
+        image: "/lobe1.jpg",
+      },
+      {
+        name: "Londi village visit",
+        description:
+          "Take a trip to Londji to experience wonderful boat tours and fishing.",
+        image: "/Londji village des pecheurs.jpeg",
+      }
+    ],
+    tours: [
+      {
+        id: 12,
+        title: "Maroua City & Culture Tour",
+        image: "/maroua6.avif",
+        price: 30000,
+        duration: "1 day",
+        rating: 4.5,
+        reviews: 52,
+        location: "Maroua",
+        description:
+          "Dive into the history and lifestyle of Maroua with visits to the lamido's palace, artisan centers, and the lively central market.",
+        highlights: [
+          "Guided tour of the lamido’s palace",
+          "Explore the Grand Market",
+          "Visit leather and textile workshops",
+          "Try traditional Far North cuisine"
+        ],
+      },
+      {
+        id: 13,
+        title: "Safari Adventure: Waza National Park",
+        image: "/maroua7.webp",
+        price: 45000,
+        duration: "Full day",
+        rating: 4.8,
+        reviews: 64,
+        location: "Waza (via Maroua)",
+        description:
+          "Set off early for a wildlife-packed day exploring Waza National Park with an expert guide. Includes transport and picnic lunch.",
+        highlights: [
+          "Safari drive through Waza",
+          "Spot elephants, giraffes, lions, and birds",
+          "Stop at park viewpoints",
+          "Optional local lunch en route"
+        ],
+      },
+      {
+        id: 14,
+        title: "Mandara Mountains Hiking Experience",
+        image: "/maroua8.webp",
+        price: 38000,
+        duration: "Full day",
+        rating: 4.6,
+        reviews: 41,
+        location: "Near Maroua",
+        description:
+          "Take a guided hike in the Mandara Mountains, visit Kapsiki villages, and enjoy breathtaking views of the volcanic landscapes.",
+        highlights: [
+          "Guided hike in Mandara Mountains",
+          "Cultural visit to a local village",
+          "Panoramic viewpoints",
+          "Learn about ancient rock dwellings"
+        ],
+      }
+    ],
+    weather:
+      "There are scattered storms during the evening, cloudy skies after midnight. There are heavy downpours and frequent lightning with storms. Weather is around 25 degree celsius.",
+    gettingThere:
+      "Fly to Yaounde or Douala airport. From there, you can hire private transport to get to the South region.",
+  }
+}
+if (slug === "Buea") {
+  return {
+    name: "Buea",
+    region: "Southwest Region",
+    image: "/Buea2.jpeg",
+    description:
+      "This region is known fr it's rich green vegetation, hravy rainfall and abundant agriculture.",
+    highlights: [
+      "Korup National Park",
+      "Mount Cameroon (nearby)",
+      "City of Limbe",
+      "Limbe Botanical Gardens",
+    ],
+    history:
+      "It was colonized by the Germans and British in the 1880s and later became a region of Cameroon in the early 1970s.",
+    activities: [
+      {
+        name: "Visit Korup National Park",
+        description:
+          "Have a wonderful experience visting Korup national park and seeing rich flora and fauna.",
+        image: "/korup1.jpg",
+      },
+      {
+        name: "Mount Cameroon Hike",
+        description:
+          "Go hiking and enjoy the beauty of nature on a rich and colorful mountain.",
+        image: "/Mount Cameroon.jpeg",
+      },
+      {
+        name: "City of Limbe",
+        description:
+          "Get to enjoy beautiful black sandy beaches in the Southwest Region.",
+        image: "/Limbe11.jpg",
+      },
+      {
+        name: "Limbe Botanical Garden visit",
+        description:
+          "Experience a colorful and beautiful adventure by visiting a garden with a wide variety of plant species.",
+        image: "/Limbe Botanical Garden.jpeg",
+      }
+    ],
+    tours: [
+      {
+        id: 12,
+        title: "Maroua City & Culture Tour",
+        image: "/maroua6.avif",
+        price: 30000,
+        duration: "1 day",
+        rating: 4.5,
+        reviews: 52,
+        location: "Maroua",
+        description:
+          "Dive into the history and lifestyle of Maroua with visits to the lamido's palace, artisan centers, and the lively central market.",
+        highlights: [
+          "Guided tour of the lamido’s palace",
+          "Explore the Grand Market",
+          "Visit leather and textile workshops",
+          "Try traditional Far North cuisine"
+        ],
+      },
+      {
+        id: 13,
+        title: "Safari Adventure: Waza National Park",
+        image: "/maroua7.webp",
+        price: 45000,
+        duration: "Full day",
+        rating: 4.8,
+        reviews: 64,
+        location: "Waza (via Maroua)",
+        description:
+          "Set off early for a wildlife-packed day exploring Waza National Park with an expert guide. Includes transport and picnic lunch.",
+        highlights: [
+          "Safari drive through Waza",
+          "Spot elephants, giraffes, lions, and birds",
+          "Stop at park viewpoints",
+          "Optional local lunch en route"
+        ],
+      },
+      {
+        id: 14,
+        title: "Mandara Mountains Hiking Experience",
+        image: "/maroua8.webp",
+        price: 38000,
+        duration: "Full day",
+        rating: 4.6,
+        reviews: 41,
+        location: "Near Maroua",
+        description:
+          "Take a guided hike in the Mandara Mountains, visit Kapsiki villages, and enjoy breathtaking views of the volcanic landscapes.",
+        highlights: [
+          "Guided hike in Mandara Mountains",
+          "Cultural visit to a local village",
+          "Panoramic viewpoints",
+          "Learn about ancient rock dwellings"
+        ],
+      }
+    ],
+    weather:
+      "There is frequent rainfall in this region. Temperature is around 70 degree F and precipitation is about 24%.",
+    gettingThere:
+      "You need to fly to Douala, the main international airport. From there, you can take a land transport bus or hire  private vehicle to the Southwest region.",
+  }
+}
+
+
+  // Default data for other destinations
+  return {
+    name: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, " "),
+    region: "Cameroon",
+    image: "/limbe7.png",
+    description: `Detailed information about ${
+      slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, " ")
+    } coming soon.`,
+    highlights: ["Natural Beauty", "Cultural Experiences", "Local Cuisine", "Friendly People"],
+    history: "Historical information coming soon.",
+    activities: [
+      {
+        name: "Explore Local Attractions",
+        description: "Discover the unique attractions this destination has to offer.",
+        image: "/limbe8.jpg",
+      },
+      {
+        name: "Experience Local Culture",
+        description: "Immerse yourself in the rich cultural heritage of the region.",
+        image: "/limbe9.jpg",
+      },
+    ],
+    tours: [],
+    weather: "Weather information coming soon.",
+    gettingThere: "Transportation information coming soon.",
+  }
+}
 
 
 
