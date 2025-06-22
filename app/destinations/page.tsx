@@ -96,16 +96,16 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "North (Nord)",
-    image: "/rainforest1.jpg",
+    image: "/maroua2.jpg",
     description:
       "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
     locations: [
       {
-        id: "korup-national-park",
+        id: "garoua",
         name: "Capital: Garoua",
-        image: "/korup1.jpg",
+        image: "/maroua3.jpg",
         description:
-          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+          "A city in northern Cameroon known for it's Fulbe/Fulani population which is one of the largest in the country and thrive in agriculture including cotton .",
       },
       
     ],
@@ -113,16 +113,16 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "Northwest (Nord-Ouest)",
-    image: "/rainforest1.jpg",
+    image: "/Bamenda2.jpeg",
     description:
-      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+      "Discover a unique geography, biodiversity, and cultural heritage in Cameroon.",
     locations: [
       {
-        id: "korup-national-park",
+        id: "Bamenda",
         name: "Capital: Bamenda",
-        image: "/korup1.jpg",
+        image: "/bamenda1.jpeg",
         description:
-          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+          "A city in Northwestern Cameroon known for it's cool climate, mountainous terrain, and distinct cultural heritage.",
       },
       
     ],
@@ -130,16 +130,16 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "West (Ouest)",
-    image: "/rainforest1.jpg",
+    image: "/bertoua6.jpg",
     description:
-      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+      "Explore the vibrant culture and the diverse landscape feauturing mountains, waterfalls and rolling plains.",
     locations: [
       {
-        id: "korup-national-park",
+        id: "Bafoussam",
         name: "Capital: Bafoussam",
-        image: "/korup1.jpg",
+        image: "/Bafoussam2.jpeg",
         description:
-          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+          "A city in western Cameroon, serving as the capital and largest city of the West Region.",
       },
       
     ],
@@ -147,16 +147,16 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "South (Sud)",
-    image: "/rainforest1.jpg",
+    image: "/Ebolowa2.jpeg",
     description:
       "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
     locations: [
       {
-        id: "korup-national-park",
+        id: "Ebolowa",
         name: "Capital: Ebolowa",
         image: "/korup1.jpg",
         description:
-          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+          "A city known as a significant center for cocoa trade and an agricultural school there which operates experimental plantations.",
       },
       
     ],
@@ -164,16 +164,16 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "Southwest (Sud-Ouest)",
-    image: "/rainforest1.jpg",
+    image: "/buea1.jpg",
     description:
-      "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
+      "Explore the unique blend of natural beauty, rich cultural heritage, and signifiant economic potential.",
     locations: [
       {
-        id: "korup-national-park",
+        id: "Buea",
         name: "Capital: Buea",
-        image: "/korup1.jpg",
+        image: "/Buea2.jpeg",
         description:
-          "One of Africa's oldest and most diverse rainforests, home to over 400 tree species and numerous endangered animals.",
+          "A city known as a significant administrative and trade center and located on the eastern slopes of Mount Cameroon.",
       },
       
     ],
