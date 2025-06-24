@@ -392,35 +392,9 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                       </p>
                     </div>
 
-                    <div className="relative border-l-2 border-green-700 pl-6">
-                      <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-green-700"></div>
-                      <h3 className="text-lg font-semibold">9:30 AM - Limbe Wildlife Centre</h3>
-                      <p className="text-gray-700">
-                        Arrive at the Limbe Wildlife Centre for a guided tour. See chimpanzees, gorillas, drills, and
-                        other primates, as well as various bird species. Learn about conservation efforts and
-                        rehabilitation programs.
-                      </p>
-                    </div>
+                    
 
-                    <div className="relative border-l-2 border-green-700 pl-6">
-                      <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-green-700"></div>
-                      <h3 className="text-lg font-semibold">12:30 PM - Lunch</h3>
-                      <p className="text-gray-700">
-                        Enjoy a traditional Cameroonian lunch at a local restaurant featuring fresh seafood and other
-                        local specialties.
-                      </p>
-                    </div>
-
-                    <div className="relative border-l-2 border-green-700 pl-6">
-                      <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-green-700"></div>
-                      <h3 className="text-lg font-semibold">2:00 PM - Black Sand Beaches</h3>
-                      <p className="text-gray-700">
-                        Head to Limbe's famous black sand beaches. Relax, swim, or take a walk along the shore. Your
-                        guide will explain the volcanic origins of these unique beaches.
-                      </p>
-                    </div>
-
-                    <div className="relative border-l-2 border-green-700 pl-6">
+                     <div className="relative border-l-2 border-green-700 pl-6">
                       <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-green-700"></div>
                       <h3 className="text-lg font-semibold">4:00 PM - Return Journey</h3>
                       <p className="text-gray-700">
@@ -457,10 +431,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                             <Check className="mr-2 h-5 w-5 text-green-700" />
                             <span>Professional English-speaking guide</span>
                           </li>
-                          <li className="flex items-start">
-                            <Check className="mr-2 h-5 w-5 text-green-700" />
-                            <span>Entrance fees to Limbe Wildlife Centre</span>
-                          </li>
+                          
                           <li className="flex items-start">
                             <Check className="mr-2 h-5 w-5 text-green-700" />
                             <span>Traditional Cameroonian lunch</span>

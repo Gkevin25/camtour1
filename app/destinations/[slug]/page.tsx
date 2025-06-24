@@ -1191,37 +1191,12 @@ if (slug === "Buea") {
     weather: "Weather information coming soon.",
     gettingThere: "Transportation information coming soon.",
   }
+
+
+
+
 }
 
-
-
-  // Default data for other destinations
-  return {
-    name: slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, " "),
-    region: "Cameroon",
-    image: "/limbe7.png",
-    description: `Detailed information about ${
-      slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, " ")
-    } coming soon.`,
-    highlights: ["Natural Beauty", "Cultural Experiences", "Local Cuisine", "Friendly People"],
-    history: "Historical information coming soon.",
-    activities: [
-      {
-        name: "Explore Local Attractions",
-        description: "Discover the unique attractions this destination has to offer.",
-        image: "/limbe8.jpg",
-      },
-      {
-        name: "Experience Local Culture",
-        description: "Immerse yourself in the rich cultural heritage of the region.",
-        image: "/limbe9.jpg",
-      },
-    ],
-    tours: [],
-    weather: "Weather information coming soon.",
-    gettingThere: "Transportation information coming soon.",
-  }
-}
 
 
 export default function DestinationDetailPage({ params }: { params: { slug: string } }) {
@@ -1534,7 +1509,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
           <div className="container">
             <h2 className="mb-8 text-2xl font-bold">You Might Also Like</h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {["Kribi", "Douala", "Mount Cameroon"].map((related, index) => (
+              {["yaounde", "douala", "Ebolowa"].map((related, index) => (
                 <Card key={index} className="overflow-hidden">
                   <div className="relative h-48">
                     <Image
