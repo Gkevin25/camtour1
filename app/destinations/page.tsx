@@ -209,7 +209,7 @@ export default function DestinationsPage() {
           />
           <div className="absolute inset-0 bg-black/40" />
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Discover Cameroon's Destinations</h1>
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Discover Cameroon&apos;s Destinations</h1>
             <p className="mb-8 max-w-2xl text-lg">
               From coastal beaches to rainforests, mountains to savannas - explore the diverse regions of Africa in
               miniature
@@ -346,7 +346,7 @@ export default function DestinationsPage() {
             <Card className="p-6">
               <h3 className="mb-4 text-xl font-semibold">What to Pack</h3>
               <p className="mb-4 text-gray-700">
-                Cameroon's diverse climates require thoughtful packing. Here are some essentials:
+                Cameroon&apos;s diverse climates require thoughtful packing. Here are some essentials:
               </p>
               <ul className="list-inside list-disc space-y-2 text-gray-700">
                 <li>Lightweight, breathable clothing for hot coastal and northern areas</li>

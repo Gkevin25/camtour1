@@ -4,10 +4,21 @@ import { fetchTours } from "@/lib/services/tours"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
+type Tour = {
+  id: string
+  title: string
+  location: string
+  price: number
+  duration: string
+  tag: string
+  image?: string
+  imageGallery?: string[]
+}
+
 export default function DebugToursPage() {
-  const [tours, setTours] = useState([])
+  const [tours, setTours] = useState<Tour[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<null | string>(null)
 
   useEffect(() => {
     const loadTours = async () => {
@@ -19,7 +30,7 @@ export default function DebugToursPage() {
         setTours(toursData)
       } catch (err) {
         console.error('❌ Error fetching tours:', err)
-        setError(err.message)
+        setError(err instanceof Error ? err.message : String(err))
       } finally {
         setLoading(false)
       }

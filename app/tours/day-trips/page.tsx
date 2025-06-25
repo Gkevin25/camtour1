@@ -301,8 +301,7 @@ export default function DayTripsPage() {
                     "Relax on the volcanic black sand beaches",
                     "Enjoy a traditional Cameroonian lunch",
                     "Learn about local conservation efforts",
-                  ]}
-                />
+                  ]} id={""}                />
 
                 <TourCard
                   title="Mount Cameroon Hiking Day Excursion"
@@ -318,8 +317,7 @@ export default function DayTripsPage() {
                     "Spectacular views of the surrounding landscape",
                     "Learn about local flora and fauna",
                     "Picnic lunch included",
-                  ]}
-                />
+                  ]} id={""}                />
 
                 <TourCard
                   title="Kribi Waterfall & Beach Excursion"
@@ -335,8 +333,7 @@ export default function DayTripsPage() {
                     "Relax on Kribi's beautiful white sand beaches",
                     "Optional boat ride to get closer to the falls",
                     "Fresh seafood lunch at a local restaurant",
-                  ]}
-                />
+                  ]} id={""}                />
 
                 <TourCard
                   title="Douala City & Cultural Tour"
@@ -352,8 +349,7 @@ export default function DayTripsPage() {
                     "Explore the colorful Central Market",
                     "See the historic Bonanjo district",
                     "Sample local cuisine at a traditional restaurant",
-                  ]}
-                />
+                  ]} id={""}                />
 
                 <TourCard
                   title="Yaoundé Political & Historical Tour"
@@ -369,8 +365,7 @@ export default function DayTripsPage() {
                     "See the Unity Palace and government district",
                     "Explore the Central Market",
                     "Panoramic views from Mont Fébé",
-                  ]}
-                />
+                  ]} id={""}                />
 
                 <TourCard
                   title="Foumban Royal Palace & Artisan Tour"
@@ -386,8 +381,7 @@ export default function DayTripsPage() {
                     "Meet local artisans and see traditional crafts being made",
                     "Shop for authentic Cameroonian art and crafts",
                     "Learn about the history of the Bamoun Kingdom",
-                  ]}
-                />
+                  ]} id={""}                />
               </div>
 
               {/* Pagination */}
@@ -449,7 +443,7 @@ export default function DayTripsPage() {
                 <AccordionTrigger>What should I bring on a day trip in Cameroon?</AccordionTrigger>
                 <AccordionContent>
                   We recommend bringing sunscreen, a hat, comfortable walking shoes, insect repellent, a water bottle,
-                  and a camera. For beach excursions, bring swimwear and a towel. It's also good to have some local
+                  and a camera. For beach excursions, bring swimwear and a towel. It&apos;s also good to have some local
                   currency for small purchases.
                 </AccordionContent>
               </AccordionItem>
@@ -471,7 +465,7 @@ export default function DayTripsPage() {
                 <AccordionTrigger>What is the cancellation policy?</AccordionTrigger>
                 <AccordionContent>
                   Most tours offer free cancellation up to 24 hours before the start time. Some specialized tours may
-                  have different policies. The specific cancellation policy is listed on each tour's booking page.
+                  have different policies. The specific cancellation policy is listed on each tour&apos;s booking page.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-5">

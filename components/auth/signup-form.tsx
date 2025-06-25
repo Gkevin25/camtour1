@@ -12,7 +12,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { account } from "@/lib/appwrite"
 import { ID } from "appwrite"
-import { useAuth } from '@/contexts/AuthContext'
+
 
 
 export function SignupForm() {

@@ -23,7 +23,7 @@ export default function TourCard({
   id,
   title,
   image,
-  imageGallery,
+  //imageGallery,
   price,
   duration,
   rating,

@@ -130,7 +130,7 @@ export default function ToursPage() {
           <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
             <h1 className="mb-4 text-4xl font-bold md:text-5xl">Explore Cameroon Tours</h1>
             <p className="mb-8 max-w-2xl text-lg">
-              Discover the best tours and experiences across Cameroon's diverse landscapes and rich cultural heritage
+              Discover the best tours and experiences across Cameroon&apos;s diverse landscapes and rich cultural heritage
             </p>
 
           </div>
@@ -298,7 +298,7 @@ export default function ToursPage() {
                 </div>
                 <h3 className="mb-2 text-xl font-semibold">Local Expertise</h3>
                 <p className="text-gray-600">
-                  Our guides are local experts with deep knowledge of Cameroon's culture and landscapes
+                  Our guides are local experts with deep knowledge of Cameroon&apos;s culture and landscapes
                 </p>
               </div>
               <div className="flex flex-col items-center text-center">
@@ -412,7 +412,7 @@ export default function ToursPage() {
                     />
                   ))}
                 </div>
-                <p className="mb-4 italic text-gray-700">"{testimonial.text}"</p>
+                <p className="mb-4 italic text-gray-700">&quot;{testimonial.text}&quot;</p>
                 <div>
                   <p className="font-semibold">{testimonial.name}</p>
                   <p className="text-sm text-gray-500">{testimonial.location}</p>

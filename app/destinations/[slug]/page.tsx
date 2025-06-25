@@ -1364,7 +1364,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
                     <div className="rounded-lg border border-dashed p-8 text-center">
                       <h3 className="mb-2 text-lg font-semibold">No Tours Available Yet</h3>
                       <p className="mb-4 text-gray-600">
-                        We're currently developing new tours for this destination. Check back soon!
+                        We&apos;re currently developing new tours for this destination. Check back soon!
                       </p>
                       <Button className="bg-green-700 hover:bg-green-800">Browse All Tours</Button>
                     </div>
@@ -1402,7 +1402,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
                           <h3 className="text-lg font-semibold">Local Tips</h3>
                         </div>
                         <ul className="list-inside list-disc space-y-2 text-gray-700">
-                          <li>Learn a few basic French phrases as it's widely spoken</li>
+                          <li>Learn a few basic French phrases as it&apos;s widely spoken</li>
                           <li>Respect local customs and traditions</li>
                           <li>Bargaining is expected in markets, but do so respectfully</li>
                           <li>Carry cash as credit cards may not be widely accepted</li>

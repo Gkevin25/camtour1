@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -65,7 +64,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="mb-2 text-xl font-semibold">Local Expertise</h3>
-                <p className="text-gray-600">Tours designed by locals who know Cameroon's hidden gems</p>
+                <p className="text-gray-600">Tours designed by locals who know Cameroon&apos;s hidden gems</p>
               </CardContent>
             </Card>
             <Card className="border-2 border-red-100">
@@ -125,7 +124,7 @@ export default function Home() {
           <div className="container text-center">
             <h2 className="mb-4 text-3xl font-bold">Join Our Newsletter</h2>
             <p className="mb-8 mx-auto max-w-2xl">
-              Subscribe to receive special offers, travel tips, and insider information about Cameroon's best
+              Subscribe to receive special offers, travel tips, and insider information about Cameroon&apos;s best
               destinations
             </p>
             <div className="mx-auto flex max-w-md flex-col gap-2 sm:flex-row">

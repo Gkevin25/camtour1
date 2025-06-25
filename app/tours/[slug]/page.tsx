@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, Star, Clock, MapPin, Users, Calendar, Check, Info, Loader2, AlertCircle } from "lucide-react"
+import {  Star, Clock, MapPin, Users, Calendar, Check, Info, Loader2, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -199,7 +199,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
   const NotFoundMessage = () => (
     <div className="container py-12 text-center">
       <h1 className="text-4xl font-bold text-gray-900 mb-4">Tour Not Found</h1>
-      <p className="text-gray-600 mb-8">The tour you're looking for doesn't exist or has been removed.</p>
+      <p className="text-gray-600 mb-8">The tour you&apos;re looking for doesn&apos;t exist or has been removed.</p>
       <Link href="/tours">
         <Button className="bg-green-700 hover:bg-green-800">
           Browse All Tours
@@ -323,7 +323,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                 <TabsList className="mb-6 grid w-full grid-cols-4">
                   <TabsTrigger value="overview">Overview</TabsTrigger>
                   <TabsTrigger value="itinerary">Itinerary</TabsTrigger>
-                  <TabsTrigger value="includes">What's Included</TabsTrigger>
+                  <TabsTrigger value="includes">What&apos;s Included</TabsTrigger>
                   <TabsTrigger value="reviews">Reviews</TabsTrigger>
                 </TabsList>
 
@@ -412,7 +412,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                 </TabsContent>
 
                 <TabsContent value="includes" className="space-y-6">
-                  <h2 className="mb-4 text-2xl font-semibold">What's Included</h2>
+                  <h2 className="mb-4 text-2xl font-semibold">What&apos;s Included</h2>
 
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <Card>
@@ -569,7 +569,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                         </div>
                         <p className="text-gray-700">
                           Amazing experience! The wildlife center was educational and seeing the animals up close was
-                          incredible. The black sand beaches were beautiful and unlike anything I've seen before. Our
+                          incredible. The black sand beaches were beautiful and unlike anything I&apos;ve seen before. Our
                           guide was knowledgeable and friendly. Highly recommend!
                         </p>
                       </div>
@@ -591,7 +591,7 @@ export default function TourDetailPage({ params }: { params: { slug: string } })
                         </div>
                         <p className="text-gray-700">
                           Great day trip from Douala. The lunch was delicious and featured local specialties. The only
-                          reason I'm giving 4 stars instead of 5 is because the drive was a bit longer than expected due
+                          reason I&apos;m giving 4 stars instead of 5 is because the drive was a bit longer than expected due
                           to traffic. Otherwise, everything was perfect!
                         </p>
                       </div>

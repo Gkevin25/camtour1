@@ -12,8 +12,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { account } from "@/lib/appwrite"
 import Link from "next/link"
-import { useAuth } from '@/contexts/AuthContext'
-import { Client} from "appwrite";
+
 
 
 
@@ -257,6 +256,4 @@ export function LoginForm() {
   )
 }
 
-function setEndpoint(arg0: string) {
-  throw new Error("Function not implemented.")
-}
+

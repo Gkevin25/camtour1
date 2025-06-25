@@ -50,16 +50,16 @@ export default function AboutPage() {
                 <p>
                   CamTour was founded in 2025 by a group of passionate Cameroonian travel enthusiasts who saw the need
                   for authentic, responsible tourism experiences in their beautiful country. What began as a small
-                  operation offering guided hikes up Mount Cameroon has grown into Cameroon's premier tour operator.
+                  operation offering guided hikes up Mount Cameroon has grown into Cameroon&apos;s premier tour operator.
                 </p>
                 <p>
-                  Our mission is to showcase the incredible diversity of Cameroon - often called "Africa in Miniature" -
+                  Our mission is to showcase the incredible diversity of Cameroon - often called &quot;Africa in Miniature&quot; -
                   while supporting local communities and preserving the natural environment. We believe that tourism,
                   when done right, can be a powerful force for positive change.
                 </p>
                 <p>
                   Today, CamTour offers a wide range of experiences across Cameroon, from wildlife safaris to cultural
-                  immersions, beach getaways to mountain adventures. What hasn't changed is our commitment to
+                  immersions, beach getaways to mountain adventures. What hasn&apos;t changed is our commitment to
                   authenticity, sustainability, and creating unforgettable memories for our guests.
                 </p>
               </div>
@@ -234,10 +234,10 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <blockquote className="mb-6 text-center text-lg font-medium italic text-gray-700">
-                  "Our experience with CamTour was nothing short of amazing. From the moment we arrived in Cameroon
+                  &quot;Our experience with CamTour was nothing short of amazing. From the moment we arrived in Cameroon
                   until our departure, everything was perfectly organized. Our guide was knowledgeable, friendly, and
                   went above and beyond to make our trip special. We saw incredible wildlife, met wonderful people, and
-                  created memories that will last a lifetime."
+                  created memories that will last a lifetime.&quot;
                 </blockquote>
                 <div className="text-center">
                   <p className="font-semibold">Michael & Sarah Thompson</p>

@@ -11,7 +11,7 @@ export default function SignupPage() {
             CamTour
           </Link>
           <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Create your account</h2>
-          <p className="mt-2 text-sm text-gray-600">Join CamTour and start exploring Cameroon's amazing destinations</p>
+          <p className="mt-2 text-sm text-gray-600">Join CamTour and start exploring Cameroon&apos;s amazing destinations</p>
         </div>
 
         <Card>
