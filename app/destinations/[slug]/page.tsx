@@ -11,7 +11,7 @@ import TourCard from "@/components/tour-card"
 // This would normally come from a database or API
 const getDestinationData = (slug: string) => {
   // Sample data for Ngaoundere
-  if (slug === "Ngaoundere") {
+  if (slug === "ngaoundere") {
     return {
       name: " Ngaoundéré",
       region: "Coastal Region",
@@ -1060,11 +1060,11 @@ if (slug === "Ebolowa") {
       "Fly to Yaounde or Douala airport. From there, you can hire private transport to get to the South region.",
   }
 }
-if (slug === "Buea") {
+if (slug === "buea") {
   return {
     name: "Buea",
     region: "Southwest Region",
-    image: "/Buea2.jpeg",
+    image: "/buea1.jpg",
     description:
       "This region is known fr it's rich green vegetation, hravy rainfall and abundant agriculture.",
     highlights: [
@@ -1251,9 +1251,7 @@ export default function DestinationDetailPage({ params }: { params: { slug: stri
             <p className="mb-8 max-w-2xl text-lg">{destination.region}</p>
             <div className="flex space-x-4">
               <Button className="bg-green-700 hover:bg-green-800">Explore Tours</Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/20">
-                View Map
-              </Button>
+              
             </div>
           </div>
         </section>

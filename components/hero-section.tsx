@@ -13,11 +13,11 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/40" />
       <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
-        <h1 className="mb-4 text-4xl font-bold md:text-6xl">Discover Cameroon &apos; Beauty</h1>
+        <h1 className="mb-4 text-4xl font-bold md:text-6xl">Discover Cameroon&apos;s Beauty</h1>
         <p className="mb-8 max-w-2xl text-lg">
           Experience the rich culture, stunning landscapes, and unforgettable adventures across Cameroon
         </p>
-        <SearchBar />
+        
       </div>
     </section>
   )

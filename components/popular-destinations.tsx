@@ -10,13 +10,13 @@ const destinations = [
   },
   {
     id: 2,
-    name: "bertoua",
+    name: "Bertoua",
     image: "/bertoua2.jpg",
     tours: 18,
   },
   {
     id: 3,
-    name: "douala",
+    name: "Douala",
     image: "/douala1.jpg",
     tours: 32,
   },
@@ -28,13 +28,13 @@ const destinations = [
   },
   {
     id: 5,
-    name: "garoua",
+    name: "Garoua",
     image: "/maroua1.jpg",
     tours: 15,
   },
   {
     id: 6,
-    name: "Bafoussam",
+    name: "Buea",
     image: "/Limbe3.jpg",
     tours: 12,
   },

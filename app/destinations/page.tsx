@@ -15,7 +15,7 @@ const destinations = [
       "Explore Cameroon's beautiful coastline with black and white sand beaches, wildlife centers, and vibrant port cities.",
     locations: [
       {
-        id: "Ngaoundere",
+        id: "ngaoundere",
         name: "Capital: Ngaoundéré",
         image: "/limbe11.jpg",
         description:
@@ -28,7 +28,7 @@ const destinations = [
   {
     id: "western-highlands",
     name: "Centre (Centre)",
-    image: "/western1.jpg",
+    image: "/yaounde11.jpg",
     description:
       "Discover the mountainous region of Cameroon with its cool climate, tea plantations, and rich cultural heritage.",
     locations: [
@@ -45,7 +45,7 @@ const destinations = [
   {
     id: "northern-savanna",
     name: "East (Est)",
-    image: "/savanah1.jpg",
+    image: "/bertoua44.jpeg",
     description:
       "Experience the vast savannas of northern Cameroon, home to diverse wildlife and traditional cultures.",
     locations: [
@@ -62,7 +62,7 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "Far North (Extrême-Nord)",
-    image: "/limbe4.jpg",
+    image: "/Farnorth11.jpg",
     description:
       "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
     locations: [
@@ -79,7 +79,7 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "Littoral (Littoral)",
-    image: "/bertoua4.jpg",
+    image: "/douala4.jpg",
     description:
       "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
     locations: [
@@ -113,7 +113,7 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "Northwest (Nord-Ouest)",
-    image: "/Bamenda2.jpeg",
+    image: "/bamenda11.jpg",
     description:
       "Discover a unique geography, biodiversity, and cultural heritage in Cameroon.",
     locations: [
@@ -130,14 +130,14 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "West (Ouest)",
-    image: "/bertoua6.jpg",
+    image: "/bafoussam11.jpg",
     description:
       "Explore the vibrant culture and the diverse landscape feauturing mountains, waterfalls and rolling plains.",
     locations: [
       {
         id: "Bafoussam",
         name: "Capital: Bafoussam",
-        image: "/Bafoussam2.jpeg",
+        image: "/bafoussam11.jpg",
         description:
           "A city in western Cameroon, serving as the capital and largest city of the West Region.",
       },
@@ -147,14 +147,14 @@ const destinations = [
   {
     id: "rainforest-region",
     name: "South (Sud)",
-    image: "/Ebolowa2.jpeg",
+    image: "/south5.jpg",
     description:
       "Explore the dense rainforests of southern and eastern Cameroon, home to incredible biodiversity and indigenous communities.",
     locations: [
       {
         id: "Ebolowa",
         name: "Capital: Ebolowa",
-        image: "/korup1.jpg",
+        image: "/south5.jpg",
         description:
           "A city known as a significant center for cocoa trade and an agricultural school there which operates experimental plantations.",
       },
@@ -169,9 +169,9 @@ const destinations = [
       "Explore the unique blend of natural beauty, rich cultural heritage, and signifiant economic potential.",
     locations: [
       {
-        id: "Buea",
+        id: "buea",
         name: "Capital: Buea",
-        image: "/Buea2.jpeg",
+        image: "/buea1.jpg",
         description:
           "A city known as a significant administrative and trade center and located on the eastern slopes of Mount Cameroon.",
       },
