@@ -169,32 +169,34 @@ export default function AboutPage() {
                 name: "John Paul",
                 role: "Founder & CEO",
                 bio: "Current student at the ICT university bachelor in SEN with years of experience in Cameroon's tourism industry. Took care of the modeling part of the project(Uml daigrams), made this about page and signup and login pages for both client and admin sites",
-                image: "/placeholder.svg?height=400&width=400",
+                image: "/jp.jpg",
               },
               {
                 name: "Gnowa Kevin",
                 role: "Operations Director",
                 bio: "Current student at the ICT university bachelor in Cybersecurity ensuring smooth experiences for all our guests. Coordinated work . gave lauout of all pages from wich team members made the other pages. Took care of the Tours page and made sure proper linking to backend.",
-                image: "/placeholder.svg?height=400&width=400",
+                image: "/kai.jpg",
               },
+               {
+                name: "Asobo Khan",
+                role: "Cultural Experience Manager",
+                bio: "Current student at the ICT university bachelor in SEN wuth experience in respectable accomodation. Designed destination page and added amazing tours to the tours. Took care of the management of sports activities in several chat groups",
+                image: "/ak.jpg",
+              },
+             
               {
+                name: "Ayuk Etang",
+                role: "Cultural Experience Manager",
+                bio: "Current student at the ICT university bachelor in SEN dedicated to authentic cultural exchange and community partnerships. Designed destination page and added amazing tours to the tours",
+                image: "/feev.jpg",
+              },
+               {
                 name: "Fakam Fankam",
                 role: "Head Guide",
                 bio: "Current student at the ICT university bachelor in SEN with extensive knowledge of Cameroon's landscapes. Helped in the development of the various pages.",
                 image: "/placeholder.svg?height=400&width=400",
               },
-              {
-                name: "Ayuk Etang",
-                role: "Cultural Experience Manager",
-                bio: "Current student at the ICT university bachelor in SEN dedicated to authentic cultural exchange and community partnerships. Designed destination page and added amazing tours to the tours",
-                image: "/placeholder.svg?height=400&width=400",
-              },
-       {
-                name: "Asobo Khan",
-                role: "Cultural Experience Manager",
-                bio: "Current student at the ICT university bachelor in SEN wuth experience in respectable accomodation. Designed destination page and added amazing tours to the tours. Took care of the management of sports activities in several chat groups",
-                image: "/placeholder.svg?height=400&width=400",
-              },
+             
             ].map((member, index) => (
               <Card key={index} className="overflow-hidden">
                 <div className="relative h-64">
