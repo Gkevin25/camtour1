@@ -65,7 +65,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative h-[400px] overflow-hidden rounded-lg">
-              <Image src="/placeholder.svg?height=800&width=800" alt="CamTour team" fill className="object-cover" />
+              <Image src="/group.jpg" alt="CamTour team" fill className="object-cover" />
             </div>
           </div>
         </section>
